@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -79,6 +80,8 @@ const Footer = () => {
             <a href="#refund">Refund & Cancellation Policy</a>
             <span>|</span>
             <a href="#terms">Terms of Service</a>
+            <span>|</span>
+            <Link to="/admin">Admin</Link>
           </div>
         </div>
       </div>

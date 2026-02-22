@@ -70,12 +70,33 @@
 
 .admin-section h2 {
   font-size: 1.4rem;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   color: #2c3e50;
 }
 
 .dark-mode .admin-section h2 {
   color: #e0e0e0;
+}
+
+.admin-section-desc {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.dark-mode .admin-section-desc {
+  color: #aaa;
+}
+
+.admin-form .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.admin-form .form-row .form-group {
+  flex: 1;
+  min-width: 120px;
 }
 
 .admin-form .form-group {
@@ -136,6 +157,29 @@
   transform: translateY(-1px);
 }
 
+.admin-btn-secondary {
+  background: #e0e0e0;
+  color: #333;
+  margin-left: 10px;
+}
+
+.dark-mode .admin-btn-secondary {
+  background: #444;
+  color: #e0e0e0;
+}
+
+.admin-btn-secondary:hover {
+  opacity: 0.9;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
 .admin-list {
   margin-top: 32px;
   padding-top: 24px;
@@ -178,9 +222,34 @@
   min-width: 120px;
 }
 
+.admin-list li .admin-meta {
+  flex: 0 0 auto;
+  font-size: 0.85rem;
+  color: #666;
+  min-width: 0;
+}
+
+.dark-mode .admin-list li .admin-meta {
+  color: #aaa;
+}
+
 .admin-list a {
   color: #667eea;
   font-weight: 500;
+}
+
+.admin-edit {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.admin-edit:hover {
+  opacity: 0.9;
 }
 
 .admin-delete {

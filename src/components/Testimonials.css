@@ -89,6 +89,10 @@
   font-style: italic;
 }
 
+.dark-mode .testimonial-text {
+  color: #c0c0c0;
+}
+
 .testimonial-author {
   display: flex;
   flex-direction: column;
@@ -98,6 +102,10 @@
 .testimonial-author strong {
   font-size: 1.2rem;
   color: #2c3e50;
+}
+
+.dark-mode .testimonial-author strong {
+  color: #e0e0e0;
 }
 
 .testimonial-author span {
@@ -120,6 +128,11 @@
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
+}
+
+.dark-mode .slider-btn {
+  background: #2d2d2d;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .slider-btn::before {
@@ -172,6 +185,10 @@
   background: #ddd;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.dark-mode .dot {
+  background: #444;
 }
 
 .dot.active {

@@ -3,6 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const STORAGE_KEYS = {
   reels: 'mindspa_reels',
   podcasts: 'mindspa_podcasts',
+  posts: 'mindspa_posts',
 };
 
 const defaultReels = [
@@ -13,6 +14,15 @@ const defaultReels = [
 const defaultPodcasts = [
   { id: '1', title: 'Understanding Anxiety', episode: 'Ep 1', link: 'https://example.com/podcast1', description: 'A deep dive into anxiety and coping strategies.', thumbnail: '🎙️' },
   { id: '2', title: 'Sleep & Mental Health', episode: 'Ep 2', link: 'https://example.com/podcast2', description: 'How sleep affects your mind and mood.', thumbnail: '🌙' },
+];
+
+const defaultPosts = [
+  { id: '1', date: '15', month: 'Aug', category: 'Holistic Health', title: 'The Rise of Holistic Mental Health – Blending Mind, Body, and Social Well-being', image: '🧘' },
+  { id: '2', date: '15', month: 'Aug', category: 'Self-Help', title: 'Stress, Anxiety & Depression – Practical Self-Help Strategies That Work', image: '💆' },
+  { id: '3', date: '15', month: 'Aug', category: 'Technology', title: 'Embracing Technology for Better Mental Health: Digital Therapy & AI in 2025', image: '💻' },
+  { id: '4', date: '14', month: 'Aug', category: 'Gen Z Wellness', title: 'Navigating Breakups and Emotional Wellness for Gen Z – Coping, Growth, and Healing', image: '❤️' },
+  { id: '5', date: '12', month: 'Aug', category: 'Hypnotherapy', title: 'Top 7 Myths About Hypnotherapy, Debunking the Misconceptions', image: '🔮' },
+  { id: '6', date: '12', month: 'Aug', category: 'Hypnotherapy', title: "No, Hypnotherapy Won't Control Your Mind, But It Might Change Your Life", image: '✨' },
 ];
 
 const loadFromStorage = (key, defaultValue) => {
@@ -43,6 +53,7 @@ export const useContent = () => {
 export const ContentProvider = ({ children }) => {
   const [reels, setReels] = useState(() => loadFromStorage(STORAGE_KEYS.reels, defaultReels));
   const [podcasts, setPodcasts] = useState(() => loadFromStorage(STORAGE_KEYS.podcasts, defaultPodcasts));
+  const [posts, setPosts] = useState(() => loadFromStorage(STORAGE_KEYS.posts, defaultPosts));
 
   useEffect(() => {
     saveToStorage(STORAGE_KEYS.reels, reels);
@@ -51,6 +62,10 @@ export const ContentProvider = ({ children }) => {
   useEffect(() => {
     saveToStorage(STORAGE_KEYS.podcasts, podcasts);
   }, [podcasts]);
+
+  useEffect(() => {
+    saveToStorage(STORAGE_KEYS.posts, posts);
+  }, [posts]);
 
   const addReel = (reel) => {
     const id = String(Date.now());
@@ -78,15 +93,32 @@ export const ContentProvider = ({ children }) => {
     setPodcasts((prev) => prev.filter((p) => p.id !== id));
   };
 
+  const addPost = (post) => {
+    const id = String(Date.now());
+    setPosts((prev) => [...prev, { ...post, id }]);
+  };
+
+  const updatePost = (id, updates) => {
+    setPosts((prev) => prev.map((p) => (p.id === id ? { ...p, ...updates } : p)));
+  };
+
+  const deletePost = (id) => {
+    setPosts((prev) => prev.filter((p) => p.id !== id));
+  };
+
   const value = {
     reels,
     podcasts,
+    posts,
     addReel,
     updateReel,
     deleteReel,
     addPodcast,
     updatePodcast,
     deletePodcast,
+    addPost,
+    updatePost,
+    deletePost,
   };
 
   return <ContentContext.Provider value={value}>{children}</ContentContext.Provider>;

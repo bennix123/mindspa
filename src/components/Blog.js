@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { useContent } from '../context/ContentContext';
 import './Blog.css';
 
 const BlogCard = ({ post, index }) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   return (
-    <div 
-      key={index} 
+    <div
+      key={post.id}
       className="blog-card"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -34,50 +35,9 @@ const BlogCard = ({ post, index }) => {
 };
 
 const Blog = () => {
-  const blogPosts = [
-    {
-      date: '15',
-      month: 'Aug',
-      category: 'Holistic Health',
-      title: 'The Rise of Holistic Mental Health – Blending Mind, Body, and Social Well-being',
-      image: '🧘'
-    },
-    {
-      date: '15',
-      month: 'Aug',
-      category: 'Self-Help',
-      title: 'Stress, Anxiety & Depression – Practical Self-Help Strategies That Work',
-      image: '💆'
-    },
-    {
-      date: '15',
-      month: 'Aug',
-      category: 'Technology',
-      title: 'Embracing Technology for Better Mental Health: Digital Therapy & AI in 2025',
-      image: '💻'
-    },
-    {
-      date: '14',
-      month: 'Aug',
-      category: 'Gen Z Wellness',
-      title: 'Navigating Breakups and Emotional Wellness for Gen Z – Coping, Growth, and Healing',
-      image: '❤️'
-    },
-    {
-      date: '12',
-      month: 'Aug',
-      category: 'Hypnotherapy',
-      title: 'Top 7 Myths About Hypnotherapy, Debunking the Misconceptions',
-      image: '🔮'
-    },
-    {
-      date: '12',
-      month: 'Aug',
-      category: 'Hypnotherapy',
-      title: 'No, Hypnotherapy Won\'t Control Your Mind, But It Might Change Your Life',
-      image: '✨'
-    }
-  ];
+  const { posts } = useContent();
+
+  if (!posts || posts.length === 0) return null;
 
   return (
     <section id="blog" className="blog section">
@@ -88,8 +48,8 @@ const Blog = () => {
           Read our latest articles on mental health, wellness, and personal development.
         </p>
         <div className="blog-grid">
-          {blogPosts.map((post, index) => (
-            <BlogCard key={index} post={post} index={index} />
+          {posts.map((post, index) => (
+            <BlogCard key={post.id} post={post} index={index} />
           ))}
         </div>
         <div className="text-center">

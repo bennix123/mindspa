@@ -1,23 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Hero.css';
 import VideoModal from './VideoModal';
 
 const Hero = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-
-  useEffect(() => {
-    // Add parallax effect on scroll
-    const handleScroll = () => {
-      const scrolled = window.pageYOffset;
-      const hero = document.querySelector('.hero-background');
-      if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <section id="home" className="hero">
@@ -42,8 +28,11 @@ const Hero = () => {
               <p>Transform your subconscious mind with professional hypnotherapy sessions.</p>
             </div>
             <div className="feature-card feature-card-center">
-              <button 
-                className="hero-book-btn-large"
+              <div className="feature-icon">🔮</div>
+              <h3>Psycho-Kundali</h3>
+              <p>Understand your partner better with psychological astrology and compatibility insights.</p>
+              <button
+                className="hero-book-btn"
                 onClick={() => {
                   const element = document.querySelector('#contact');
                   if (element) {
@@ -51,7 +40,7 @@ const Hero = () => {
                   }
                 }}
               >
-                BOOK APPOINTMENT <span className="btn-emoji">🔮</span>
+                Book Appointment
               </button>
             </div>
             <div className="feature-card">

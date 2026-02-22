@@ -30,6 +30,10 @@
   border-bottom: 2px solid #e0e0e0;
 }
 
+.dark-mode .founder-info-card {
+  border-bottom-color: #444;
+}
+
 .founder-header h3 {
   font-size: 2rem;
   color: #667eea;
@@ -44,16 +48,28 @@
   font-weight: 500;
 }
 
+.dark-mode .founder-title {
+  color: #b0b0b0;
+}
+
 .founder-message-text {
   line-height: 1.8;
   color: #555;
   font-size: 1.05rem;
 }
 
+.dark-mode .founder-message-text {
+  color: #c0c0c0;
+}
+
 .greeting {
   font-weight: 600;
   color: #2c3e50;
   margin-bottom: 15px;
+}
+
+.dark-mode .greeting {
+  color: #e0e0e0;
 }
 
 .founder-message-text p {
@@ -69,6 +85,10 @@
   margin-bottom: 12px;
   color: #555;
   line-height: 1.7;
+}
+
+.dark-mode .founder-list li {
+  color: #c0c0c0;
 }
 
 .founder-list li::marker {

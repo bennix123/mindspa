@@ -97,3 +97,21 @@
   .quote { padding: 70px 0; }
   .quote-text { font-size: 1.75rem; }
 }
+
+/* ── LIGHT MODE OVERRIDES ── Quote ─────────────── */
+.light-mode .quote {
+  background: linear-gradient(135deg, #e8f4ff 0%, #f0f4ff 50%, #e0f7f0 100%);
+}
+.light-mode .quote::before { border-color: rgba(14,165,114,0.20); }
+.light-mode .quote::after  { border-color: rgba(201,146,10,0.18); }
+.light-mode .quote-text    { color: #0d1b3e; }
+.light-mode .quote-subtitle { color: #4a6080; }
+.light-mode .quote-btn-outline {
+  border-color: rgba(13,27,62,0.25);
+  color: #1e3a5f;
+}
+.light-mode .quote-btn-outline:hover {
+  border-color: var(--green);
+  color: #fff;
+  background: var(--green);
+}

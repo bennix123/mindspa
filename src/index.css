@@ -29,30 +29,35 @@
 
 /* Light mode override (when light-mode is ON) */
 .light-mode {
-  --bg-primary: #f8f6f3;
-  --bg-secondary: #efece8;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f5f3ef;
-  --bg-input: #ffffff;
+  /* Backgrounds — warm ivory → soft sky white */
+  --bg-primary:      #f0f4ff;
+  --bg-secondary:    #e8f0fe;
+  --bg-card:         #ffffff;
+  --bg-card-hover:   #f5f8ff;
+  --bg-input:        #ffffff;
 
-  --accent: #b8860b;
-  --accent-hover: #c9a227;
-  --accent-dark: #996f09;
-  --accent-gradient: linear-gradient(135deg, #b8860b 0%, #c9a227 100%);
+  /* Gold accent — richer, deeper */
+  --accent:          #c9920a;
+  --accent-hover:    #d4a017;
+  --accent-dark:     #a87208;
+  --accent-gradient: linear-gradient(135deg, #c9920a 0%, #e8b422 50%, #f5cc45 100%);
 
-  --text-heading: #0a0e1a;
-  --text-primary: #334155;
-  --text-secondary: #64748b;
-  --text-accent: #b8860b;
+  /* Text */
+  --text-heading:    #0d1b3e;
+  --text-primary:    #1e3a5f;
+  --text-secondary:  #4a6080;
+  --text-accent:     #c9920a;
 
-  --border-color: rgba(0, 0, 0, 0.08);
-  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  --card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
-  --text-on-accent: #0a0e1a;
+  /* Borders & shadows — soft blue tint */
+  --border-color:      rgba(30, 80, 180, 0.10);
+  --card-shadow:       0 4px 24px rgba(30, 80, 180, 0.08);
+  --card-shadow-hover: 0 12px 40px rgba(30, 80, 180, 0.15);
+  --text-on-accent:    #ffffff;
 
-  --green: #1e7d5e;
-  --green-hover: #2d9d78;
-  --green-light: rgba(45, 157, 120, 0.12);
+  /* Teal/emerald green — vivid */
+  --green:       #0ea572;
+  --green-hover: #12c085;
+  --green-light: rgba(14, 165, 114, 0.12);
 }
 
 * {

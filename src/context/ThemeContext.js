@@ -13,7 +13,7 @@ export const useTheme = () => {
 export const ThemeProvider = ({ children }) => {
   const [isLightMode, setIsLightMode] = useState(() => {
     const saved = localStorage.getItem('lightMode');
-    return saved !== null ? JSON.parse(saved) : false;
+    return saved !== null ? JSON.parse(saved) : true; // default: light mode ON
   });
 
   useEffect(() => {

@@ -327,3 +327,70 @@
   .hero-visual { display: none; }
   .hero-content { padding: 110px 0 50px; }
 }
+
+/* ── LIGHT MODE OVERRIDES ── Hero ─────────────── */
+.light-mode .hero {
+  background: linear-gradient(160deg, #e8f4ff 0%, #f0f4ff 50%, #e8fff6 100%);
+}
+
+.light-mode .hero-background {
+  background:
+    radial-gradient(ellipse 80% 60% at 65% 40%, rgba(14,165,114,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(201,146,10,0.08) 0%, transparent 50%),
+    linear-gradient(160deg, #e8f4ff 0%, #f0f4ff 50%, #e8fff6 100%);
+}
+
+/* dot grid lightened for light bg */
+.light-mode .hero-background::before {
+  background-image: radial-gradient(circle at 1px 1px, rgba(14,165,114,0.15) 1px, transparent 0);
+}
+
+/* ring colour */
+.light-mode .hero-background::after {
+  border-color: rgba(14,165,114,0.20);
+}
+
+/* overlay — very light so bg shows through */
+.light-mode .hero-overlay {
+  background: linear-gradient(100deg, rgba(240,244,255,0.55) 0%, rgba(240,244,255,0.2) 55%, transparent 100%);
+}
+
+.light-mode .hero-main-title { color: #0d1b3e; }
+.light-mode .hero-tagline {
+  color: #1e3a5f;
+  border-left-color: var(--green);
+}
+.light-mode .hero-cta-secondary { color: #1e3a5f; }
+.light-mode .hero-cta-secondary:hover { color: var(--accent); }
+.light-mode .hero-play-ring { border-color: rgba(201,146,10,0.6); }
+
+.light-mode .hero-badge {
+  background: rgba(14,165,114,0.12);
+  border-color: rgba(14,165,114,0.3);
+}
+
+.light-mode .hero-visual-card {
+  background: rgba(255,255,255,0.80);
+  border-color: rgba(30,80,180,0.14);
+  box-shadow: 0 8px 32px rgba(30,80,180,0.10);
+}
+.light-mode .hero-visual-card h4 { color: #0d1b3e; }
+.light-mode .hero-visual-card p  { color: #4a6080; }
+
+.light-mode .hero-visual-card-alt {
+  background: rgba(14,165,114,0.10);
+  border-color: rgba(14,165,114,0.3);
+}
+
+/* Feature strip — clean white */
+.light-mode .hero-features {
+  background: #ffffff;
+  border-top: 1px solid rgba(30,80,180,0.10);
+  box-shadow: 0 -4px 20px rgba(30,80,180,0.06);
+}
+
+.light-mode .feature-card { border-right-color: rgba(30,80,180,0.08); }
+.light-mode .feature-card h3 { color: #0d1b3e; }
+.light-mode .feature-card p  { color: #4a6080; }
+.light-mode .feature-card:hover { background: rgba(14,165,114,0.05); }
+.light-mode .feature-card-center { background: rgba(201,146,10,0.05); }

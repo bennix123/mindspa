@@ -13,7 +13,12 @@
 }
 
 .light-mode .header {
-  background: rgba(250, 248, 245, 0.95);
+  background: rgba(240, 244, 255, 0.96);
+  border-bottom-color: rgba(30, 80, 180, 0.10);
+}
+
+.light-mode .header.scrolled {
+  box-shadow: 0 4px 24px rgba(30, 80, 180, 0.10);
 }
 
 .header.scrolled {

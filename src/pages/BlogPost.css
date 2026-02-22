@@ -523,18 +523,33 @@
 
 /* ── Light mode overrides ────────────────────── */
 .light-mode .bp-hero-banner {
-  background: linear-gradient(135deg, #1a2744 0%, #1e3a2a 100%);
+  background: linear-gradient(160deg, #e8f4ff 0%, #f0f4ff 50%, #e0f7f0 100%);
 }
 
+.light-mode .bp-hero-overlay {
+  background: linear-gradient(180deg, rgba(240,244,255,0.4) 0%, rgba(240,244,255,0.15) 100%);
+}
+
+.light-mode .bp-hero-category {
+  background: var(--accent-gradient);
+  color: #fff;
+}
+
+.light-mode .bp-hero-title { color: #0d1b3e; }
+
+.light-mode .bp-hero-meta { color: #4a6080; }
+
+.light-mode .bp-breadcrumb a { color: #4a6080; }
+
 .light-mode .bp-sidebar-cta {
-  background: linear-gradient(135deg, #e8f5f0 0%, #e8f0fa 100%);
-  border-color: rgba(45, 157, 120, 0.3);
+  background: linear-gradient(135deg, #e0f7f0 0%, #e8f4ff 100%);
+  border-color: rgba(14, 165, 114, 0.25);
 }
 
 .light-mode .bp-sidebar-cta h3 {
-  color: var(--text-heading);
+  color: #0d1b3e;
 }
 
 .light-mode .bp-sidebar-cta p {
-  color: var(--text-secondary);
+  color: #4a6080;
 }

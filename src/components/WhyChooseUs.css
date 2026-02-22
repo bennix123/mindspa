@@ -1,78 +1,126 @@
+/* ── Why Choose Us ─────────────────────────────── */
 .why-choose-us {
-  background: white;
-  transition: background-color 0.3s ease;
+  background: var(--bg-primary);
+  transition: background-color 0.4s ease;
 }
 
-.dark-mode .why-choose-us {
-  background: #1a1a1a;
+.wcu-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: start;
 }
 
-.text-center {
-  text-align: center;
-  margin-top: 40px;
+.wcu-title {
+  margin-bottom: 16px;
 }
 
+.wcu-desc {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  font-size: 0.97rem;
+  margin-bottom: 28px;
+}
+
+/* Service tags */
 .services-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .service-tag {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 15px 20px;
-  background: #f8f9fa;
-  border-radius: 12px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.87rem;
+  transition: all 0.25s ease;
+  cursor: default;
 }
 
-.dark-mode .service-tag {
-  background: #2d2d2d;
-  color: #e0e0e0;
-}
-
-.service-tag::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 4px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  transform: scaleY(0);
-  transition: transform 0.4s ease;
-}
-
-.service-tag:hover::before {
-  transform: scaleY(1);
+.service-tag-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
 }
 
 .service-tag:hover {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  transform: translateX(10px) scale(1.02);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(45,157,120,0.3);
 }
 
-.check-icon {
-  color: #667eea;
-  font-weight: bold;
-  font-size: 1.2rem;
+/* Why choose us — reason cards */
+.wcu-reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 28px;
 }
 
-.service-tag:hover .check-icon {
-  color: white;
+.wcu-reason-card {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 22px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  transition: border-color 0.25s, transform 0.25s;
 }
 
-@media (max-width: 768px) {
-  .services-list {
-    grid-template-columns: 1fr;
-  }
+.wcu-reason-card:hover {
+  border-color: var(--green);
+  transform: translateX(4px);
 }
+
+.wcu-reason-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: var(--green-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wcu-reason-title {
+  font-size: 1rem;
+  color: var(--text-heading);
+  margin-bottom: 4px;
+  font-family: 'Playfair Display', serif;
+}
+
+.wcu-reason-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .wcu-layout { grid-template-columns: 1fr; gap: 50px; }
+  .services-list { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .services-list { grid-template-columns: 1fr; }
+}
+
+.wcu-left .section-label,
+.wcu-left .section-title,
+.wcu-right .section-label,
+.wcu-right .section-title { text-align: left; }
 

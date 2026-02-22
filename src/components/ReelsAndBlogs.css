@@ -1,10 +1,6 @@
 .reels-blogs {
-  background: #f8f9fa;
-  transition: background-color 0.3s ease;
-}
-
-.dark-mode .reels-blogs {
-  background: #1a1a1a;
+  background: var(--bg-secondary);
+  transition: background-color 0.4s ease;
 }
 
 .reels-grid {
@@ -15,38 +11,29 @@
 }
 
 .reel-card {
-  background: white;
+  background: var(--bg-card);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--card-shadow);
   display: flex;
   flex-direction: column;
   text-decoration: none;
   color: inherit;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.dark-mode .reel-card {
-  background: #2d2d2d;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
 }
 
 .reel-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.2);
-  border-color: rgba(102, 126, 234, 0.3);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--green);
 }
 
 .reel-thumbnail {
   font-size: 3.5rem;
   padding: 30px;
   text-align: center;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-}
-
-.dark-mode .reel-thumbnail {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+  background: rgba(200, 169, 126, 0.08);
 }
 
 .reel-content {
@@ -56,32 +43,25 @@
 .reel-content h3 {
   font-size: 1.2rem;
   margin-bottom: 8px;
-  color: #2c3e50;
-}
-
-.dark-mode .reel-content h3 {
-  color: #e0e0e0;
+  color: var(--text-heading);
 }
 
 .reel-content p {
   font-size: 0.95rem;
-  color: #7f8c8d;
+  color: var(--text-secondary);
   line-height: 1.5;
   margin-bottom: 12px;
-}
-
-.dark-mode .reel-content p {
-  color: #b0b0b0;
 }
 
 .reel-link-text {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #667eea;
+  color: var(--green);
 }
 
 .reel-card:hover .reel-link-text {
   text-decoration: underline;
+  color: var(--green-hover);
 }
 
 @media (max-width: 768px) {

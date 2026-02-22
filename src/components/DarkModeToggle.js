@@ -3,20 +3,20 @@ import { useTheme } from '../context/ThemeContext';
 import './DarkModeToggle.css';
 
 const DarkModeToggle = () => {
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { isLightMode, toggleTheme } = useTheme();
 
   return (
-    <button 
+    <button
       className="dark-mode-toggle"
       onClick={toggleTheme}
-      aria-label="Toggle dark mode"
-      title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label="Toggle theme"
+      title={isLightMode ? 'Switch to dark mode' : 'Switch to light mode'}
     >
       <div className="toggle-icon">
-        {isDarkMode ? (
-          <span className="sun-icon">☀️</span>
-        ) : (
+        {isLightMode ? (
           <span className="moon-icon">🌙</span>
+        ) : (
+          <span className="sun-icon">☀️</span>
         )}
       </div>
     </button>
@@ -24,4 +24,3 @@ const DarkModeToggle = () => {
 };
 
 export default DarkModeToggle;
-

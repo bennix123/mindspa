@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useContent } from '../context/ContentContext';
 import './Blog.css';
 
@@ -6,8 +7,8 @@ const BlogCard = ({ post, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div
-      key={post.id}
+    <Link
+      to={`/blog/${post.id}`}
       className="blog-card"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -30,7 +31,7 @@ const BlogCard = ({ post, index }) => {
         <span className="blog-category">{post.category}</span>
         <h3>{post.title}</h3>
       </div>
-    </div>
+    </Link>
   );
 };
 

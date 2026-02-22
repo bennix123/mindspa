@@ -17,12 +17,12 @@ const defaultPodcasts = [
 ];
 
 const defaultPosts = [
-  { id: '1', date: '15', month: 'Aug', category: 'Holistic Health', title: 'The Rise of Holistic Mental Health – Blending Mind, Body, and Social Well-being', image: '🧘' },
-  { id: '2', date: '15', month: 'Aug', category: 'Self-Help', title: 'Stress, Anxiety & Depression – Practical Self-Help Strategies That Work', image: '💆' },
-  { id: '3', date: '15', month: 'Aug', category: 'Technology', title: 'Embracing Technology for Better Mental Health: Digital Therapy & AI in 2025', image: '💻' },
-  { id: '4', date: '14', month: 'Aug', category: 'Gen Z Wellness', title: 'Navigating Breakups and Emotional Wellness for Gen Z – Coping, Growth, and Healing', image: '❤️' },
-  { id: '5', date: '12', month: 'Aug', category: 'Hypnotherapy', title: 'Top 7 Myths About Hypnotherapy, Debunking the Misconceptions', image: '🔮' },
-  { id: '6', date: '12', month: 'Aug', category: 'Hypnotherapy', title: "No, Hypnotherapy Won't Control Your Mind, But It Might Change Your Life", image: '✨' },
+  { id: '1', date: '15', month: 'Aug', category: 'Holistic Health', title: 'The Rise of Holistic Mental Health – Blending Mind, Body, and Social Well-being', image: '🧘', content: 'Holistic mental health approaches consider the whole person—mind, body, and social context. At MindSpa we blend evidence-based therapy with wellness practices to support lasting change. This article explores how integrating physical health, relationships, and mindfulness can improve mental well-being.' },
+  { id: '2', date: '15', month: 'Aug', category: 'Self-Help', title: 'Stress, Anxiety & Depression – Practical Self-Help Strategies That Work', image: '💆', content: 'Practical, day-to-day strategies can make a real difference for stress, anxiety, and low mood. We share evidence-based self-help techniques: breathing exercises, routine, sleep, and when to seek professional support. Small steps add up to better mental health.' },
+  { id: '3', date: '15', month: 'Aug', category: 'Technology', title: 'Embracing Technology for Better Mental Health: Digital Therapy & AI in 2025', image: '💻', content: 'Digital tools and AI are changing how we support mental health—from apps to teletherapy. We look at what works, what to watch for, and how technology can complement in-person care at MindSpa.' },
+  { id: '4', date: '14', month: 'Aug', category: 'Gen Z Wellness', title: 'Navigating Breakups and Emotional Wellness for Gen Z – Coping, Growth, and Healing', image: '❤️', content: 'Breakups are tough at any age. For Gen Z, social media and changing norms add extra layers. This piece offers compassionate, practical advice on coping, setting boundaries, and growing through relationship endings.' },
+  { id: '5', date: '12', month: 'Aug', category: 'Hypnotherapy', title: 'Top 7 Myths About Hypnotherapy, Debunking the Misconceptions', image: '🔮', content: 'Hypnotherapy is often misunderstood. We bust seven common myths: you stay in control, it is not sleep, it is used by qualified practitioners, and it can support real change for habits, anxiety, and more.' },
+  { id: '6', date: '12', month: 'Aug', category: 'Hypnotherapy', title: "No, Hypnotherapy Won't Control Your Mind, But It Might Change Your Life", image: '✨', content: 'Hypnotherapy works with your subconscious to reinforce positive change—you remain in control. Learn how it can help with confidence, stress, and breaking unhelpful patterns when done with a trained professional.' },
 ];
 
 const loadFromStorage = (key, defaultValue) => {

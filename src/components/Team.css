@@ -1,46 +1,37 @@
+/* ── Team / Gallery ────────────────────────────── */
 .team {
-  background: white;
-  transition: background-color 0.3s ease;
-}
-
-.dark-mode .team {
-  background: #1a1a1a;
+  background: var(--bg-primary);
+  transition: background-color 0.4s ease;
 }
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
   margin-top: 50px;
 }
 
 .team-card {
-  background: white;
-  border-radius: 15px;
+  background: var(--bg-card);
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-}
-
-.dark-mode .team-card {
-  background: #2d2d2d;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.35s ease, box-shadow 0.35s, border-color 0.35s;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
 }
 
 .team-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.dark-mode .team-card:hover {
-  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.35);
+  border-color: var(--green);
 }
 
 .team-image {
   width: 100%;
-  height: 300px;
+  height: 240px;
   overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, rgba(45,157,120,0.25) 0%, rgba(201,162,39,0.15) 100%);
   position: relative;
 }
 
@@ -50,94 +41,80 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  opacity: 0.9;
   transition: transform 0.4s ease;
 }
 
 .team-card:hover .image-placeholder-team {
-  transform: scale(1.1);
+  transform: scale(1.06);
 }
 
 .service-icon-large {
   font-size: 5rem;
-  transition: transform 0.4s ease;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.3));
+}
+
+.pulse {
+  animation: icon-pulse 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes icon-pulse {
+  from { transform: scale(1); }
+  to   { transform: scale(1.1); }
 }
 
 .team-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  inset: 0;
+  background: linear-gradient(160deg, rgba(45,157,120,0.9) 0%, rgba(10,14,26,0.95) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: opacity 0.4s ease;
-  backdrop-filter: blur(5px);
 }
 
-.team-overlay.active {
-  opacity: 1;
-}
+.team-overlay.active { opacity: 1; }
 
 .team-view-btn {
-  background: white;
-  color: #667eea;
-  padding: 12px 30px;
-  border-radius: 25px;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  padding: 11px 28px;
+  border-radius: 50px;
   font-weight: 600;
-  transform: translateY(20px);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transform: translateY(16px);
   transition: all 0.4s ease;
-  border: 2px solid white;
+  border: 2px solid rgba(255,255,255,0.5);
+  cursor: pointer;
 }
 
-.team-overlay.active .team-view-btn {
-  transform: translateY(0);
-}
+.team-overlay.active .team-view-btn { transform: translateY(0); }
 
 .team-view-btn:hover {
-  background: #667eea;
-  color: white;
-  transform: translateY(-5px) scale(1.05);
+  background: rgba(255,255,255,0.22);
+  border-color: white;
 }
 
 .team-info {
-  padding: 25px;
+  padding: 22px 24px;
   text-align: center;
+  border-top: 1px solid var(--border-color);
 }
 
 .team-info h3 {
-  font-size: 1.3rem;
-  margin-bottom: 8px;
-  color: #2c3e50;
+  font-size: 1.1rem;
+  color: var(--text-heading);
+  margin: 0;
+  font-family: 'Playfair Display', serif;
 }
 
-.dark-mode .team-info h3 {
-  color: #e0e0e0;
-}
-
-.team-info p {
-  color: #667eea;
-  font-weight: 500;
-}
-
-@media (max-width: 768px) {
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .team-image {
-    height: 250px;
-  }
+@media (max-width: 900px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .team-image { height: 200px; }
 }
 
 @media (max-width: 480px) {
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
+  .team-grid { grid-template-columns: 1fr; }
 }
-

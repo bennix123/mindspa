@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useContent } from '../context/ContentContext';
 import './Admin.css';
 
-const defaultPost = { date: '', month: '', category: '', title: '', image: '📝' };
+const defaultPost = { date: '', month: '', category: '', title: '', image: '📝', content: '' };
 const defaultPodcast = { title: '', episode: '', link: '', description: '', thumbnail: '🎙️' };
 const defaultReel = { title: '', link: '', thumbnail: '🎬', description: '' };
 
@@ -91,7 +91,14 @@ function Admin() {
   };
 
   const startEditPost = (p) => {
-    setPostForm({ date: p.date, month: p.month, category: p.category, title: p.title, image: p.image || '📝' });
+    setPostForm({
+      date: p.date,
+      month: p.month,
+      category: p.category,
+      title: p.title,
+      image: p.image || '📝',
+      content: p.content || '',
+    });
     setEditingPostId(p.id);
   };
   const startEditPodcast = (p) => {
@@ -179,6 +186,15 @@ function Admin() {
                 onChange={(e) => setPostForm((f) => ({ ...f, title: e.target.value }))}
                 placeholder="Post title"
                 required
+              />
+            </div>
+            <div className="form-group">
+              <label>Content (full article text)</label>
+              <textarea
+                value={postForm.content}
+                onChange={(e) => setPostForm((f) => ({ ...f, content: e.target.value }))}
+                placeholder="Write the full blog post content. Use blank lines to separate paragraphs."
+                rows={6}
               />
             </div>
             <div className="form-actions">

@@ -37,7 +37,7 @@ const About = () => {
             <div className="about-img-stack">
               <div className="about-img-main-wrap">
                 <img
-                  src={mainFallback ? ABOUT_FALLBACK_MAIN : founderImage(1)}
+                  src={mainFallback ? ABOUT_FALLBACK_MAIN : founderImage(10)}
                   alt="Dr. Manju Agrawal – Founder, MindSpa"
                   className="about-img-main"
                   onError={() => setMainFallback(true)}
@@ -49,7 +49,7 @@ const About = () => {
               </div>
               <div className="about-img-secondary-wrap">
                 <img
-                  src={secFallback ? ABOUT_FALLBACK_SEC : founderImage(2)}
+                  src={secFallback ? ABOUT_FALLBACK_SEC : founderImage(9)}
                   alt="Dr. Manju Agrawal"
                   className="about-img-secondary"
                   onError={() => setSecFallback(true)}

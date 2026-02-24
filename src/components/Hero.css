@@ -274,8 +274,9 @@
 }
 .hero-img-main {
   width: 380px;
-  height: 320px;
+  height: 420px;
   object-fit: cover;
+  object-position: top center;
   display: block;
 }
 .hero-img-badge {
@@ -300,8 +301,9 @@
 }
 .hero-img-secondary {
   width: 240px;
-  height: 170px;
+  height: 220px;
   object-fit: cover;
+  object-position: top center;
   display: block;
 }
 
@@ -390,7 +392,7 @@
 @media (max-width: 968px) {
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
   .hero-visual { align-items: center; }
-  .hero-img-main { width: 100%; max-width: 380px; height: 260px; }
+  .hero-img-main { width: 100%; max-width: 380px; height: 340px; }
   .hero-img-small { display: none; }
   .hero-main-title { font-size: 3rem; }
   .hero-content { padding: 120px 0 60px; }

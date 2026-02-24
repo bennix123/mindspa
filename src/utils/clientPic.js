@@ -8,9 +8,13 @@ const BASE = process.env.PUBLIC_URL || '';
 
 export const clientPic = (filename) => `${BASE}/client-pic/${filename}`;
 
-/** Founder (Manju) photos: 1.jpg through 7.jpg */
-export const founderImageCount = 7;
+/** Founder (Manju) photos: 1.jpg through 11.jpg */
+export const founderImageCount = 11;
 export const founderImage = (n) => clientPic(`${n}.jpg`);
+
+/** Background images */
+export const heroBgImage = clientPic('hero-bg.jpg');
+export const forestBgImage = clientPic('forest-bg.jpg');
 
 /** Testimonials: testimonial1.jpg, testimonial2.jpg, testimonial3.jpg */
 export const testimonialAvatar = (index) => clientPic(`testimonial${index + 1}.jpg`);

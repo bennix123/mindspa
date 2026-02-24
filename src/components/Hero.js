@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Hero.css';
 import VideoModal from './VideoModal';
-import { founderImage } from '../utils/clientPic';
+import { founderImage, heroBgImage } from '../utils/clientPic';
 
-const HERO_IMG = 'https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
+const HERO_IMG = heroBgImage;
 const FLOAT_1 = 'https://images.pexels.com/photos/3759657/pexels-photo-3759657.jpeg?auto=compress&cs=tinysrgb&w=400';
 const FLOAT_2 = 'https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?auto=compress&cs=tinysrgb&w=400';
 const HERO_FALLBACK_MAIN = 'https://images.pexels.com/photos/3759659/pexels-photo-3759659.jpeg?auto=compress&cs=tinysrgb&w=600';
@@ -80,12 +80,12 @@ const Hero = () => {
       <div className="hero-float hero-float-1" style={{
         transform: `translate(${mousePos.x * 15}px, ${mousePos.y * 15}px)`,
       }}>
-        <img src={founderImage(3)} alt="" onError={(e) => { e.target.onerror = null; e.target.src = FLOAT_1; }} />
+        <img src={founderImage(9)} alt="" onError={(e) => { e.target.onerror = null; e.target.src = FLOAT_1; }} />
       </div>
       <div className="hero-float hero-float-2" style={{
         transform: `translate(${mousePos.x * -20}px, ${mousePos.y * -20}px)`,
       }}>
-        <img src={founderImage(4)} alt="" onError={(e) => { e.target.onerror = null; e.target.src = FLOAT_2; }} />
+        <img src={founderImage(10)} alt="" onError={(e) => { e.target.onerror = null; e.target.src = FLOAT_2; }} />
       </div>
 
       {/* Animated particles */}
@@ -158,7 +158,7 @@ const Hero = () => {
                 transform: `translate(${mousePos.x * 6}px, ${mousePos.y * 6}px)`,
               }}>
                 <img
-                  src={heroMainFallback ? HERO_FALLBACK_MAIN : founderImage(1)}
+                  src={heroMainFallback ? HERO_FALLBACK_MAIN : founderImage(8)}
                   alt="Dr. Manju Agrawal – Founder"
                   className="hero-img-main"
                   onError={() => setHeroMainFallback(true)}
@@ -171,7 +171,7 @@ const Hero = () => {
                 transform: `translate(${mousePos.x * -10}px, ${mousePos.y * -10}px)`,
               }}>
                 <img
-                  src={heroSmallFallback ? HERO_FALLBACK_SMALL : founderImage(2)}
+                  src={heroSmallFallback ? HERO_FALLBACK_SMALL : founderImage(11)}
                   alt="Dr. Manju Agrawal"
                   className="hero-img-secondary"
                   onError={() => setHeroSmallFallback(true)}

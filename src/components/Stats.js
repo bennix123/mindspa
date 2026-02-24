@@ -48,6 +48,14 @@ const Stats = () => {
 
   return (
     <section className="stats section">
+      <div className="stats-bg-layer">
+        <img
+          src="https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          alt=""
+          aria-hidden="true"
+        />
+        <div className="stats-bg-overlay" />
+      </div>
       <div className="stats-full-width">
         <div className="stats-grid" ref={statsRef}>
           {stats.map((stat, index) => (
@@ -66,7 +74,6 @@ const Stats = () => {
         </div>
       </div>
     </section>
-
   );
 };
 

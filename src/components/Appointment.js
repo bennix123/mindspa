@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import './Appointment.css';
+import { founderImage } from '../utils/clientPic';
+
+const APPT_FALLBACK = 'https://images.pexels.com/photos/3759659/pexels-photo-3759659.jpeg?auto=compress&cs=tinysrgb&w=600';
 
 const Appointment = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [apptImgFallback, setApptImgFallback] = useState(false);
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -36,8 +40,14 @@ const Appointment = () => {
         </p>
 
         <div className="appointment-layout">
-          {/* Info panel */}
           <div className="appointment-info fade-in">
+            <div className="appointment-info-img">
+              <img
+                src={apptImgFallback ? APPT_FALLBACK : founderImage(5)}
+                alt="Dr. Manju Agrawal – Book a session"
+                onError={() => setApptImgFallback(true)}
+              />
+            </div>
             <h3 className="appointment-info-title">Let's Talk About Your Well-Being</h3>
             <p className="appointment-info-desc">
               Whether you are dealing with stress, relationship issues, or seeking personal growth,
@@ -56,7 +66,6 @@ const Appointment = () => {
             </div>
           </div>
 
-          {/* Form panel */}
           <div className="appointment-content fade-in animate-delay-1">
             <h4 className="appointment-form-title">Schedule Your Session</h4>
             {submitted ? (

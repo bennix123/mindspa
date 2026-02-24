@@ -1,6 +1,8 @@
 import React from 'react';
 import './WhyChooseUs.css';
 
+const WCU_IMG = 'https://images.pexels.com/photos/3822864/pexels-photo-3822864.jpeg?auto=compress&cs=tinysrgb&w=600';
+
 const WhyChooseUs = () => {
   const services = [
     { label: 'Stress, Anxiety & Depression', icon: '😰' },
@@ -26,7 +28,6 @@ const WhyChooseUs = () => {
     <section id="therapies" className="why-choose-us section">
       <div className="container">
         <div className="wcu-layout">
-          {/* Left — Get Help With */}
           <div className="wcu-left fade-in">
             <span className="section-label">GET HELP WITH</span>
             <h2 className="section-title wcu-title">We Help You Overcome Challenges</h2>
@@ -49,8 +50,10 @@ const WhyChooseUs = () => {
             </div>
           </div>
 
-          {/* Right — Why Choose Us */}
           <div className="wcu-right fade-in animate-delay-1">
+            <div className="wcu-right-img">
+              <img src={WCU_IMG} alt="Meditation and healing" />
+            </div>
             <span className="section-label">WHY CHOOSE US</span>
             <h2 className="section-title wcu-title">Why MindSpa?</h2>
             <div className="wcu-reasons">

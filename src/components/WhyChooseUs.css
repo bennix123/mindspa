@@ -11,10 +11,7 @@
   align-items: start;
 }
 
-.wcu-title {
-  margin-bottom: 16px;
-}
-
+.wcu-title { margin-bottom: 16px; }
 .wcu-desc {
   color: var(--text-secondary);
   line-height: 1.75;
@@ -28,7 +25,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
-
 .service-tag {
   display: flex;
   align-items: center;
@@ -42,12 +38,7 @@
   transition: all 0.25s ease;
   cursor: default;
 }
-
-.service-tag-icon {
-  font-size: 1.1rem;
-  flex-shrink: 0;
-}
-
+.service-tag-icon { font-size: 1.1rem; flex-shrink: 0; }
 .service-tag:hover {
   background: var(--green);
   color: #fff;
@@ -56,14 +47,31 @@
   box-shadow: 0 4px 16px rgba(45,157,120,0.3);
 }
 
-/* Why choose us — reason cards */
+/* Right side image */
+.wcu-right-img {
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+.wcu-right-img img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.wcu-right-img:hover img {
+  transform: scale(1.05);
+}
+
+/* Reason cards */
 .wcu-reasons {
   display: flex;
   flex-direction: column;
   gap: 20px;
   margin-top: 28px;
 }
-
 .wcu-reason-card {
   display: flex;
   gap: 18px;
@@ -74,12 +82,10 @@
   border-radius: 14px;
   transition: border-color 0.25s, transform 0.25s;
 }
-
 .wcu-reason-card:hover {
   border-color: var(--green);
   transform: translateX(4px);
 }
-
 .wcu-reason-icon {
   font-size: 1.8rem;
   flex-shrink: 0;
@@ -91,14 +97,12 @@
   align-items: center;
   justify-content: center;
 }
-
 .wcu-reason-title {
   font-size: 1rem;
   color: var(--text-heading);
   margin-bottom: 4px;
   font-family: 'Playfair Display', serif;
 }
-
 .wcu-reason-desc {
   font-size: 0.86rem;
   color: var(--text-secondary);
@@ -106,15 +110,12 @@
   margin: 0;
 }
 
-.text-center {
-  text-align: center;
-}
+.text-center { text-align: center; }
 
 @media (max-width: 900px) {
   .wcu-layout { grid-template-columns: 1fr; gap: 50px; }
   .services-list { grid-template-columns: 1fr 1fr; }
 }
-
 @media (max-width: 480px) {
   .services-list { grid-template-columns: 1fr; }
 }
@@ -123,4 +124,3 @@
 .wcu-left .section-title,
 .wcu-right .section-label,
 .wcu-right .section-title { text-align: left; }
-

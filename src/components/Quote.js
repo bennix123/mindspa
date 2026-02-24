@@ -4,6 +4,14 @@ import './Quote.css';
 const Quote = () => {
   return (
     <section className="quote section">
+      <div className="quote-bg-image">
+        <img
+          src="https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+      <div className="quote-overlay" />
       <div className="container">
         <div className="quote-content">
           <span className="quote-icon-big">🕊️</span>

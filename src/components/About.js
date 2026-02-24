@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './About.css';
+import { founderImage } from '../utils/clientPic';
+
+const ABOUT_FALLBACK_MAIN = 'https://images.pexels.com/photos/3759657/pexels-photo-3759657.jpeg?auto=compress&cs=tinysrgb&w=600';
+const ABOUT_FALLBACK_SEC = 'https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?auto=compress&cs=tinysrgb&w=400';
 
 const About = () => {
+  const [visible, setVisible] = useState(false);
+  const [mainFallback, setMainFallback] = useState(false);
+  const [secFallback, setSecFallback] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.2 }
+    );
+    obs.observe(el);
+    return () => obs.unobserve(el);
+  }, []);
+
   const highlights = [
     { icon: '🧠', text: 'Evidence-based psychological therapies' },
     { icon: '🤝', text: 'Personalised one-on-one sessions' },
@@ -10,24 +30,37 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="about section">
+    <section id="about" className="about section" ref={ref}>
       <div className="container">
         <div className="about-layout">
-          {/* Left — visual panel */}
-          <div className="about-visual fade-in">
-            <div className="about-visual-main">
-              <div className="about-visual-icon">🧠</div>
-              <div className="about-visual-ring about-ring-1" />
-              <div className="about-visual-ring about-ring-2" />
+          <div className={`about-visual ${visible ? 'about-visible' : ''}`}>
+            <div className="about-img-stack">
+              <div className="about-img-main-wrap">
+                <img
+                  src={mainFallback ? ABOUT_FALLBACK_MAIN : founderImage(1)}
+                  alt="Dr. Manju Agrawal – Founder, MindSpa"
+                  className="about-img-main"
+                  onError={() => setMainFallback(true)}
+                />
+                <div className="about-img-exp-badge">
+                  <span className="about-badge-num">10+</span>
+                  <span className="about-badge-label">Years of Expertise</span>
+                </div>
+              </div>
+              <div className="about-img-secondary-wrap">
+                <img
+                  src={secFallback ? ABOUT_FALLBACK_SEC : founderImage(2)}
+                  alt="Dr. Manju Agrawal"
+                  className="about-img-secondary"
+                  onError={() => setSecFallback(true)}
+                />
+              </div>
             </div>
-            <div className="about-badge-pill">
-              <span className="about-badge-num">10+</span>
-              <span className="about-badge-label">Years of Expertise</span>
-            </div>
+            <div className="about-visual-ring about-ring-1" />
+            <div className="about-visual-ring about-ring-2" />
           </div>
 
-          {/* Right — text */}
-          <div className="about-text fade-in animate-delay-1">
+          <div className={`about-text ${visible ? 'about-visible' : ''}`}>
             <span className="section-label">ABOUT US</span>
             <h2 className="section-title about-title">
               Welcome to <span className="gradient-text">MindSpa</span>
@@ -40,7 +73,11 @@ const About = () => {
 
             <div className="about-highlights">
               {highlights.map((h, i) => (
-                <div key={i} className="about-highlight-item">
+                <div
+                  key={i}
+                  className="about-highlight-item"
+                  style={{ transitionDelay: `${0.3 + i * 0.1}s` }}
+                >
                   <span className="about-highlight-icon">{h.icon}</span>
                   <span className="about-highlight-text">{h.text}</span>
                 </div>

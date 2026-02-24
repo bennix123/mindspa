@@ -70,3 +70,24 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Cursor glow effect */
+.cursor-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(45,157,120,0.06) 0%, transparent 70%);
+  transition: left 0.15s ease-out, top 0.15s ease-out;
+  mix-blend-mode: screen;
+}
+.light-mode .cursor-glow {
+  background: radial-gradient(circle, rgba(14,165,114,0.04) 0%, transparent 70%);
+}
+
+@media (max-width: 768px) {
+  .cursor-glow { display: none; }
+}

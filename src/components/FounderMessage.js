@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { founderImage, founderImageCount } from '../utils/clientPic';
 import './FounderMessage.css';
 
+const FALLBACK_IMG = 'https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?auto=compress&cs=tinysrgb&w=400';
+
 const FounderMessage = () => {
+  const [currentPhoto, setCurrentPhoto] = useState(1);
+  const [fallbackUsed, setFallbackUsed] = useState(false);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setCurrentPhoto((p) => (p >= founderImageCount ? 1 : p + 1));
+    }, 3500);
+    return () => clearInterval(t);
+  }, []);
+
   const credentials = [
     { icon: '🎓', text: 'Hypnotherapy Trainer & Practitioner' },
     { icon: '🧠', text: 'Subconscious Mind Coach' },
@@ -9,14 +22,36 @@ const FounderMessage = () => {
     { icon: '🌍', text: 'Online & Offline Consultations' },
   ];
 
+  const founderPhotos = Array.from({ length: founderImageCount }, (_, i) => i + 1);
+
   return (
     <section id="founder" className="founder-message section">
       <div className="container">
         <div className="founder-layout">
-          {/* Left — identity card */}
           <div className="founder-card fade-in">
-            <div className="founder-avatar">
-              <span>MA</span>
+            <div className="founder-avatar-img">
+              <img
+                src={fallbackUsed ? FALLBACK_IMG : founderImage(currentPhoto)}
+                alt="Dr. Manju Agrawal"
+                onError={() => setFallbackUsed(true)}
+              />
+            </div>
+            <div className="founder-photo-strip">
+              {founderPhotos.map((n) => (
+                <button
+                  key={n}
+                  type="button"
+                  className={`founder-thumb ${currentPhoto === n ? 'active' : ''}`}
+                  onClick={() => setCurrentPhoto(n)}
+                  aria-label={`View photo ${n}`}
+                >
+                  <img
+                    src={founderImage(n)}
+                    alt=""
+                    onError={(e) => { e.target.style.display = 'none'; }}
+                  />
+                </button>
+              ))}
             </div>
             <h3 className="founder-name">Dr. Manju Agrawal</h3>
             <div className="founder-credentials">
@@ -33,7 +68,6 @@ const FounderMessage = () => {
             </div>
           </div>
 
-          {/* Right — message */}
           <div className="founder-message-wrap fade-in animate-delay-1">
             <span className="section-label">FOUNDER'S MESSAGE</span>
             <h2 className="section-title">A Word From Our Founder</h2>

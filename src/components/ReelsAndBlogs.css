@@ -19,54 +19,83 @@
   flex-direction: column;
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
   border: 1px solid var(--border-color);
 }
-
 .reel-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   box-shadow: var(--card-shadow-hover);
   border-color: var(--green);
 }
 
 .reel-thumbnail {
-  font-size: 3.5rem;
-  padding: 30px;
-  text-align: center;
-  background: rgba(200, 169, 126, 0.08);
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+.reel-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.reel-card:hover .reel-bg-img {
+  transform: scale(1.08);
+}
+.reel-play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6,13,24,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+.reel-card:hover .reel-play-overlay {
+  background: rgba(45,157,120,0.3);
+}
+.reel-play-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(6px);
+  border: 2px solid rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: transform 0.3s;
+}
+.reel-card:hover .reel-play-icon {
+  transform: scale(1.1);
 }
 
 .reel-content {
   padding: 20px;
 }
-
 .reel-content h3 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 8px;
   color: var(--text-heading);
 }
-
 .reel-content p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.5;
   margin-bottom: 12px;
 }
-
 .reel-link-text {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--green);
 }
-
 .reel-card:hover .reel-link-text {
   text-decoration: underline;
   color: var(--green-hover);
 }
 
 @media (max-width: 768px) {
-  .reels-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+  .reels-grid { grid-template-columns: 1fr; gap: 20px; }
 }

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,73 +16,86 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const menuItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Blogs', href: '#blog' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Gallery', href: '#gallery' },
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setIsResourcesOpen(false);
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  const resourcesItems = [
+    { name: 'Blogs', path: '/blogs' },
+    { name: 'Testimonials', path: '/testimonials' },
+    { name: 'Psychological Services', path: '/services' },
+    { name: 'Gallery', path: '/gallery' },
   ];
 
-  const scrollTo = (href) => {
-    setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="container">
-        <div className="header-content">
-          <div className="logo">
-            <h2>
-              <span className="logo-mind">Mind</span>
-              <span className="logo-spa">spa</span>
-            </h2>
+    <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
+      <div className="header__inner">
+        <Link to="/" className="header__logo">
+          <img src="/client-pic/logo.png" alt="Mind Spa" className="header__logo-img" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }} />
+          <div className="header__logo-text" style={{ display: 'flex' }}>
+            <span className="logo-icon">🌿</span>
+            <div>
+              <span className="logo-mind">Mind</span>{' '}
+              <span className="logo-spa">Spa</span>
+            </div>
           </div>
+        </Link>
 
-          <nav className={`nav ${isMobileMenuOpen ? 'open' : ''}`}>
-            <ul className="nav-list">
-              {menuItems.map((item, index) => (
-                <li key={index}>
-                  <a
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollTo(item.href);
-                    }}
-                  >
+        <nav className={`header__nav ${isMobileMenuOpen ? 'header__nav--open' : ''}`}>
+          <Link to="/" className={`header__nav-link ${location.pathname === '/' ? 'active' : ''}`}>
+            Home
+          </Link>
+
+          <div
+            className="header__nav-dropdown"
+            onMouseEnter={() => setIsResourcesOpen(true)}
+            onMouseLeave={() => setIsResourcesOpen(false)}
+          >
+            <button className="header__nav-link header__nav-link--dropdown">
+              Resources
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" />
+              </svg>
+            </button>
+            {isResourcesOpen && (
+              <div className="header__dropdown-menu">
+                {resourcesItems.map((item) => (
+                  <Link key={item.path} to={item.path} className="header__dropdown-item">
                     {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <div className="header-actions">
-            <a href="tel:+917607588184" className="header-phone">
-              +91 7607588184
-            </a>
-            <button
-              className="btn btn-primary header-quote-btn"
-              onClick={() => scrollTo('#contact')}
-            >
-              Get a Quote
-            </button>
-            <button
-              className="mobile-menu-toggle"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
-        </div>
+
+          <Link to="/about" className={`header__nav-link ${location.pathname === '/about' ? 'active' : ''}`}>
+            About Us
+          </Link>
+
+          <Link to="/contact" className={`header__nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>
+            Contact Us
+          </Link>
+
+          <Link to="/courses" className={`header__nav-link ${location.pathname === '/courses' ? 'active' : ''}`}>
+            All Courses
+          </Link>
+
+          <span className="header__nav-link header__nav-link--announcement">
+            Psychology of Self-Talk – Book Released!
+          </span>
+        </nav>
+
+        <button
+          className={`header__hamburger ${isMobileMenuOpen ? 'header__hamburger--active' : ''}`}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
   );

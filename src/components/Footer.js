@@ -1,159 +1,81 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
 import './Footer.css';
 
 const Footer = () => {
-  const usefulLinks = [
-    { label: 'Home',         href: '#home' },
-    { label: 'About Us',     href: '#about' },
-    { label: 'Blogs',        href: '#blog' },
-    { label: 'Testimonials', href: '#testimonials' },
-    { label: 'Gallery',      href: '#gallery' },
-    { label: 'Contact Us',   href: '#contact' },
-  ];
-
-  const popularServices = [
-    'Hypnotherapy',
-    'Psycho-Kundali',
-    'Chakra Healing',
-    'Handwriting Analysis',
-    'Life & Executive Coaching',
-    'Stress & Anxiety Management',
-    'Relationship Counseling',
-    'Self Enhancement',
-  ];
-
-  const scrollTo = (href) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
+  const [titleRef, titleVis] = useScrollReveal();
+  const gridRef = useStaggerReveal({ staggerDelay: 150, childSelector: '.footer__contact-item' });
 
   return (
     <footer className="footer">
-      {/* CTA Top band */}
-      <div className="footer-top">
+      {/* Connect with us */}
+      <section className="footer__connect">
         <div className="container">
-          <div className="footer-top-inner">
-            <div>
-              <h3 className="footer-cta-title">Ready to Transform Your Life?</h3>
-              <p className="footer-cta-sub">Start your journey with a free consultation today.</p>
+          <div ref={titleRef} className={`reveal reveal-up ${titleVis ? 'visible' : ''}`}>
+            <h2 className="section-title">Connect with us</h2>
+            <div className="section-divider">
+              <span className="line"></span>
             </div>
-            <button
-              className="btn btn-primary footer-cta-btn"
-              onClick={() => scrollTo('#contact')}
-            >
-              Book Appointment
-            </button>
+            <p className="footer__connect-subtitle">Transform your body, mind, and life today.</p>
+          </div>
+
+          <div className="footer__contact-grid" ref={gridRef}>
+            <div className="footer__contact-item stagger-item">
+              <div className="footer__contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="32" height="32">
+                  <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                </svg>
+              </div>
+              <h4>ADDRESS</h4>
+              <p>Lucknow, Uttar Pradesh</p>
+            </div>
+
+            <div className="footer__contact-item stagger-item">
+              <div className="footer__contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="32" height="32">
+                  <path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                </svg>
+              </div>
+              <h4>PHONE</h4>
+              <p>+91 7607588184</p>
+              <p>+91 8840676202</p>
+            </div>
+
+            <div className="footer__contact-item stagger-item">
+              <div className="footer__contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="32" height="32">
+                  <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+              </div>
+              <h4>EMAIL ADDRESS</h4>
+              <p>mindspalko@gmail.com</p>
+            </div>
+
+            <div className="footer__contact-item stagger-item">
+              <div className="footer__contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="32" height="32">
+                  <path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                </svg>
+              </div>
+              <h4>BUSINESS HOURS</h4>
+              <p>MON to FRI: 8AM to 6PM</p>
+              <p>SAT: 9AM to 12PM</p>
+            </div>
+          </div>
+
+          <div className="footer__policies">
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/refund-policy">Refund &amp; Cancellation Policy</Link>
+            <Link to="/terms">Terms of Service</Link>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Main columns */}
-      <div className="footer-main">
+      {/* Copyright */}
+      <div className="footer__copyright">
         <div className="container">
-          <div className="footer-content">
-
-            {/* Brand */}
-            <div className="footer-section footer-brand">
-              <div className="footer-logo">
-                <span className="footer-logo-mind">Mind</span>
-                <span className="footer-logo-spa">spa</span>
-              </div>
-              <p className="footer-brand-desc">
-                A team of certified psychologists dedicated to your mental and emotional
-                well-being — without stigma or judgment.
-              </p>
-              <div className="footer-socials">
-                <a href="https://instagram.com" target="_blank" rel="noreferrer" className="footer-social-icon" aria-label="Instagram">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                </a>
-                <a href="https://facebook.com" target="_blank" rel="noreferrer" className="footer-social-icon" aria-label="Facebook">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                </a>
-                <a href="https://youtube.com" target="_blank" rel="noreferrer" className="footer-social-icon" aria-label="YouTube">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/></svg>
-                </a>
-                <a href="https://wa.me/917607588184" target="_blank" rel="noreferrer" className="footer-social-icon" aria-label="WhatsApp">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                </a>
-              </div>
-            </div>
-
-            {/* Useful Links */}
-            <div className="footer-section">
-              <h4 className="footer-heading">Useful Links</h4>
-              <ul className="footer-links-list">
-                {usefulLinks.map((link, i) => (
-                  <li key={i}>
-                    <a
-                      href={link.href}
-                      onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}
-                    >
-                      <span className="footer-link-arrow">›</span> {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Services */}
-            <div className="footer-section">
-              <h4 className="footer-heading">Our Services</h4>
-              <ul className="footer-links-list">
-                {popularServices.map((s, i) => (
-                  <li key={i}>
-                    <a
-                      href="#services"
-                      onClick={(e) => { e.preventDefault(); scrollTo('#services'); }}
-                    >
-                      <span className="footer-link-arrow">›</span> {s}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div className="footer-section">
-              <h4 className="footer-heading">Contact Info</h4>
-              <ul className="footer-contact-list">
-                <li>
-                  <span className="footer-contact-icon">📍</span>
-                  <span>Lucknow, Uttar Pradesh</span>
-                </li>
-                <li>
-                  <span className="footer-contact-icon">📞</span>
-                  <span>+91 7607588184<br />+91 8840676202</span>
-                </li>
-                <li>
-                  <span className="footer-contact-icon">✉️</span>
-                  <span>mindspalko@gmail.com</span>
-                </li>
-                <li>
-                  <span className="footer-contact-icon">⏰</span>
-                  <span>Mon–Fri: 8AM–6PM<br />Sat: 9AM–12PM</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom bar */}
-      <div className="footer-bottom">
-        <div className="container">
-          <div className="footer-bottom-inner">
-            <p className="footer-copy">© {new Date().getFullYear()} MindSpa. All rights reserved.</p>
-            <div className="footer-legal-links">
-              <a href="#privacy">Privacy Policy</a>
-              <span>|</span>
-              <a href="#refund">Refund Policy</a>
-              <span>|</span>
-              <a href="#terms">Terms of Service</a>
-              <span>|</span>
-              <Link to="/admin">Admin</Link>
-            </div>
-          </div>
+          <p>Copyright &copy; {new Date().getFullYear()} Mind Spa India</p>
         </div>
       </div>
     </footer>

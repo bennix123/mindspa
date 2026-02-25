@@ -1,0 +1,40 @@
+/* ── Quote Banner ──────────────────────────────────── */
+.quote-banner {
+  background: var(--gradient-banner);
+  padding: 50px 0;
+  text-align: center;
+}
+
+.quote-banner-text {
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+  letter-spacing: 0.5px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .quote-banner {
+    padding: 40px 0;
+  }
+
+  .quote-banner-text {
+    font-size: 22px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quote-banner {
+    padding: 30px 0;
+  }
+
+  .quote-banner-text {
+    font-size: 18px;
+  }
+}

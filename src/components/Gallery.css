@@ -1,0 +1,119 @@
+/* ── Gallery Section ───────────────────────────── */
+.gallery {
+  padding: 60px 20px;
+  background: var(--white);
+}
+
+.gallery__container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Title */
+.gallery__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  text-align: center;
+  color: var(--dark-navy);
+  margin-bottom: 12px;
+}
+
+/* Section divider */
+.gallery__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 40px;
+}
+
+.gallery__divider .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.gallery__divider .line {
+  width: 30px;
+  height: 3px;
+  background: var(--blue);
+}
+
+/* Photo grid */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.gallery__img-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  aspect-ratio: 1 / 1;
+}
+
+.gallery__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.gallery__img-wrap:hover img {
+  transform: scale(1.05);
+}
+
+/* See More link */
+.gallery__see-more {
+  text-align: center;
+}
+
+.gallery__see-more-link {
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--blue);
+  letter-spacing: 0.5px;
+  padding: 10px 28px;
+  border: 2px solid var(--blue);
+  border-radius: var(--radius-sm);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.gallery__see-more-link:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .gallery {
+    padding: 40px 16px;
+  }
+
+  .gallery__title {
+    font-size: 28px;
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 28px;
+  }
+}

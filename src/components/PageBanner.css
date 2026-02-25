@@ -1,0 +1,90 @@
+/* === PAGE BANNER COMPONENT === */
+.page-banner {
+  background: linear-gradient(135deg, #e8f0fe 0%, #dbeafe 50%, #e0f2fe 100%);
+  padding: 60px 0 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-banner::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(4, 92, 180, 0.06);
+}
+
+.page-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(233, 30, 140, 0.05);
+}
+
+.page-banner-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.page-banner-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: var(--dark-navy);
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.page-banner-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--body-text);
+}
+
+.page-banner-breadcrumb a {
+  color: var(--blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-weight: 500;
+}
+
+.page-banner-breadcrumb a:hover {
+  color: var(--blue-hover);
+  text-decoration: underline;
+}
+
+.page-banner-breadcrumb .breadcrumb-separator {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.page-banner-breadcrumb .breadcrumb-current {
+  color: var(--dark-navy);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-banner {
+    padding: 45px 0 35px;
+  }
+
+  .page-banner-title {
+    font-size: 32px;
+  }
+
+  .page-banner-breadcrumb {
+    font-size: 13px;
+  }
+}

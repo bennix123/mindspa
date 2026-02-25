@@ -1,9 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useContent } from '../context/ContentContext';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import DarkModeToggle from '../components/DarkModeToggle';
 import './BlogPost.css';
 
 const DEFAULT_CONTENT = 'This article is part of our blog on mental health, wellness, and personal development. For more support, explore our services or book an appointment with our team.';
@@ -20,19 +17,14 @@ function BlogPost() {
 
   if (!post) {
     return (
-      <div className="App">
-        <Header />
-        <main className="blog-post-page">
-          <div className="container">
-            <div className="blog-post-not-found">
-              <h1>Post not found</h1>
-              <p>The blog post you're looking for doesn't exist or may have been removed.</p>
-              <Link to="/#blog" className="btn btn-primary">Back to Blog</Link>
-            </div>
+      <div className="blog-post-page">
+        <div className="container">
+          <div className="blog-post-not-found">
+            <h1>Post not found</h1>
+            <p>The blog post you're looking for doesn't exist or may have been removed.</p>
+            <Link to="/blogs" className="btn-primary">Back to Blog</Link>
           </div>
-        </main>
-        <Footer />
-        <DarkModeToggle />
+        </div>
       </div>
     );
   }
@@ -41,9 +33,7 @@ function BlogPost() {
   const paragraphs = content.split(/\n\n+/).filter(Boolean);
 
   return (
-    <div className="App">
-      <Header />
-
+    <>
       {/* Page Hero Banner */}
       <section className="bp-hero-banner">
         <div className="bp-hero-overlay" />
@@ -56,12 +46,12 @@ function BlogPost() {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               {post.date} {post.month}
             </span>
-            <span className="bp-meta-sep">•</span>
+            <span className="bp-meta-sep">&bull;</span>
             <span className="bp-meta-item">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               MindSpa Team
             </span>
-            <span className="bp-meta-sep">•</span>
+            <span className="bp-meta-sep">&bull;</span>
             <span className="bp-meta-item">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
               5 min read
@@ -70,7 +60,7 @@ function BlogPost() {
           <nav className="bp-breadcrumb">
             <Link to="/">Home</Link>
             <span>/</span>
-            <Link to="/#blog">Blog</Link>
+            <Link to="/blogs">Blog</Link>
             <span>/</span>
             <span>{post.category}</span>
           </nav>
@@ -136,8 +126,8 @@ function BlogPost() {
 
             {/* Nav Buttons */}
             <div className="bp-footer-nav">
-              <Link to="/#blog" className="btn btn-outline">← All Posts</Link>
-              <Link to="/#contact" className="btn btn-primary">Book Appointment</Link>
+              <Link to="/blogs" className="btn-primary" style={{ background: 'transparent', color: 'var(--blue)', border: '2px solid var(--blue)' }}>&#8592; All Posts</Link>
+              <Link to="/contact" className="btn-primary">Book Appointment</Link>
             </div>
           </article>
 
@@ -146,10 +136,10 @@ function BlogPost() {
 
             {/* Appointment CTA */}
             <div className="bp-sidebar-cta">
-              <div className="bp-sidebar-cta-icon">🧠</div>
+              <div className="bp-sidebar-cta-icon">&#129504;</div>
               <h3>Need Support?</h3>
               <p>Our therapists are here to help. Book a session today and take the first step toward wellness.</p>
-              <Link to="/#contact" className="btn btn-primary bp-sidebar-btn">Book Appointment</Link>
+              <Link to="/contact" className="btn-primary bp-sidebar-btn">Book Appointment</Link>
             </div>
 
             {/* Categories */}
@@ -158,7 +148,7 @@ function BlogPost() {
               <ul className="bp-category-list">
                 {CATEGORIES.map((cat) => (
                   <li key={cat} className={`bp-category-item ${cat === post.category ? 'active' : ''}`}>
-                    <span className="bp-cat-arrow">›</span>
+                    <span className="bp-cat-arrow">&rsaquo;</span>
                     {cat}
                   </li>
                 ))}
@@ -198,10 +188,7 @@ function BlogPost() {
           </aside>
         </div>
       </main>
-
-      <Footer />
-      <DarkModeToggle />
-    </div>
+    </>
   );
 }
 

@@ -1,0 +1,64 @@
+/* ── Quote Simple Section ──────────────────────── */
+.quote-simple {
+  padding: 40px 20px;
+  background: var(--light-grey);
+}
+
+.quote-simple__container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Decorative line above */
+.quote-simple__line {
+  width: 60px;
+  height: 2px;
+  background: var(--blue);
+  margin: 0 auto 24px;
+  opacity: 0.5;
+}
+
+/* Quote text */
+.quote-simple__text {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--dark-navy);
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 0 auto;
+  letter-spacing: 0.3px;
+}
+
+/* Decorative line below */
+.quote-simple__line--bottom {
+  margin: 24px auto 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .quote-simple {
+    padding: 32px 16px;
+  }
+
+  .quote-simple__text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quote-simple__text {
+    font-size: 18px;
+  }
+
+  .quote-simple__line {
+    width: 40px;
+    margin-bottom: 18px;
+  }
+
+  .quote-simple__line--bottom {
+    margin-top: 18px;
+  }
+}

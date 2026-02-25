@@ -1,0 +1,144 @@
+/* ── Get Help With Section ─────────────────────── */
+.get-help {
+  padding: 60px 20px;
+  background: var(--white);
+}
+
+.get-help__container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Dotted separator */
+.get-help__dots {
+  text-align: center;
+  margin-bottom: 32px;
+  letter-spacing: 6px;
+  color: var(--body-text);
+  font-size: 20px;
+  opacity: 0.4;
+}
+
+/* Title */
+.get-help__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  text-align: center;
+  color: var(--dark-navy);
+  margin-bottom: 12px;
+}
+
+/* Section divider */
+.get-help__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 48px;
+}
+
+.get-help__divider .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.get-help__divider .line {
+  width: 30px;
+  height: 3px;
+  background: var(--blue);
+}
+
+/* Tree / timeline layout */
+.get-help__tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Vertical connector line */
+.get-help__tree::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--border-light);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* Individual condition item */
+.get-help__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+  padding: 10px 24px;
+  background: var(--white);
+  margin-bottom: 4px;
+}
+
+.get-help__item:last-child {
+  margin-bottom: 0;
+}
+
+/* Colored square bullet */
+.get-help__marker {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+.get-help__marker--orange {
+  background: #e8913a;
+}
+
+.get-help__marker--teal {
+  background: #4db6ac;
+}
+
+/* Condition text */
+.get-help__text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  color: var(--dark-navy);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .get-help {
+    padding: 40px 16px;
+  }
+
+  .get-help__title {
+    font-size: 28px;
+  }
+
+  .get-help__item {
+    padding: 8px 16px;
+  }
+
+  .get-help__text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .get-help__tree::before {
+    left: 28px;
+  }
+
+  .get-help__item {
+    justify-content: flex-start;
+    padding: 8px 12px;
+  }
+}

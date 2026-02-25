@@ -1,101 +1,63 @@
-import React, { useState, useEffect } from 'react';
-import { testimonialAvatar } from '../utils/clientPic';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import './Testimonials.css';
 
-const FALLBACK_AVATARS = [
-  'https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=150',
-  'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150',
-  'https://images.pexels.com/photos/3771089/pexels-photo-3771089.jpeg?auto=compress&cs=tinysrgb&w=150',
-];
-
 const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
-  const [avatarFallback, setAvatarFallback] = useState({});
-
-  const testimonials = [
-    {
-      name: 'Priya Sharma',
-      role: 'Entrepreneur',
-      stars: 5,
-      text: 'MindSpa changed my perspective on mental health. The compassionate approach and personalised sessions helped me regain clarity and confidence in my daily life.'
-    },
-    {
-      name: 'Rahul Verma',
-      role: 'Software Engineer',
-      stars: 5,
-      text: 'The therapy sessions have been truly transformative. The team at MindSpa provided me with the tools and support I needed to overcome my challenges. Highly recommended!'
-    },
-    {
-      name: 'Anita Gupta',
-      role: 'Teacher',
-      stars: 5,
-      text: 'Professional, compassionate, and effective. The therapists here truly understand their clients and provide personalised care that makes a real difference in your life.'
-    }
-  ];
-
-  const getAvatar = (index) => {
-    if (avatarFallback[index]) return FALLBACK_AVATARS[index];
-    return testimonialAvatar(index);
-  };
-
-  const handleAvatarError = (index) => {
-    setAvatarFallback((prev) => ({ ...prev, [index]: true }));
-  };
-
-  const goTo = (idx) => {
-    if (animating) return;
-    setAnimating(true);
-    setCurrentIndex(idx);
-    setTimeout(() => setAnimating(false), 500);
-  };
-
-  const next = () => goTo((currentIndex + 1) % testimonials.length);
-  const prev = () => goTo((currentIndex - 1 + testimonials.length) % testimonials.length);
-
-  useEffect(() => {
-    const iv = setInterval(next, 5000);
-    return () => clearInterval(iv);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentIndex]);
-
-  const t = testimonials[currentIndex];
+  const [headerRef, headerVis] = useScrollReveal();
+  const [imgRef, imgVis] = useScrollReveal({ threshold: 0.2 });
+  const [vidRef, vidVis] = useScrollReveal({ threshold: 0.2 });
 
   return (
-    <section id="testimonials" className="testimonials section">
-      <div className="container">
-        <span className="section-label">WHAT MY CLIENTS SAY</span>
-        <h2 className="section-title">Testimonials</h2>
-        <p className="section-subtitle">"Begin your journey to a better life with peace, love, and happiness"</p>
-
-        <div className="testimonials-slider">
-          <button className="slider-btn prev" onClick={prev}>‹</button>
-          <div className={`testimonial-card ${animating ? 'card-anim' : ''}`}>
-            <div className="quote-icon">"</div>
-            <div className="testimonial-stars">
-              {Array.from({ length: t.stars }).map((_, i) => <span key={i}>★</span>)}
-            </div>
-            <p className="testimonial-text">{t.text}</p>
-            <div className="testimonial-author">
-              <img
-                src={getAvatar(currentIndex)}
-                alt={t.name}
-                className="testimonial-avatar-img"
-                onError={() => handleAvatarError(currentIndex)}
-              />
-              <div className="testimonial-author-info">
-                <strong>{t.name}</strong>
-                <span>{t.role}</span>
-              </div>
-            </div>
-          </div>
-          <button className="slider-btn next" onClick={next}>›</button>
+    <section className="testimonials-section">
+      <div className="testimonials-bg-pattern" aria-hidden="true"></div>
+      <div className="container testimonials-container">
+        <div ref={headerRef} className={`testimonials-header reveal reveal-up ${headerVis ? 'visible' : ''}`}>
+          <span className="testimonials-label">WHAT MY CLIENTS SAY</span>
+          <h2 className="testimonials-title">Testimonials</h2>
         </div>
 
-        <div className="testimonial-dots">
-          {testimonials.map((_, i) => (
-            <button key={i} className={`dot ${i === currentIndex ? 'active' : ''}`} onClick={() => goTo(i)} />
-          ))}
+        <div className="testimonials-grid">
+          <div ref={imgRef} className={`testimonials-image-col reveal reveal-left ${imgVis ? 'visible' : ''}`}>
+            <div className="testimonials-image-wrapper">
+              <img
+                src="https://images.pexels.com/photos/3807277/pexels-photo-3807277.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Person pressing smiley face button"
+                className="testimonials-image"
+              />
+            </div>
+          </div>
+
+          <div ref={vidRef} className={`testimonials-video-col reveal reveal-right ${vidVis ? 'visible' : ''}`}>
+            <div className="testimonials-video-placeholder">
+              <div className="testimonials-video-overlay">
+                <div className="testimonials-play-btn">
+                  <svg
+                    width="50"
+                    height="50"
+                    viewBox="0 0 50 50"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="25" cy="25" r="25" fill="rgba(255,255,255,0.9)" />
+                    <polygon points="20,15 38,25 20,35" fill="#1E293B" />
+                  </svg>
+                </div>
+                <p className="testimonials-video-text">Watch Client Testimonial</p>
+              </div>
+              <img
+                src="https://images.pexels.com/photos/3807277/pexels-photo-3807277.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Video testimonial thumbnail"
+                className="testimonials-video-thumb"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="testimonials-cta">
+          <Link to="/testimonials" className="btn-primary testimonials-btn">
+            More Testimonials
+          </Link>
         </div>
       </div>
     </section>

@@ -1,0 +1,118 @@
+/* ── Steps Section ─────────────────────────────────── */
+.steps-section {
+  background: var(--white);
+  padding: 60px 0;
+}
+
+/* ── Dotted Divider Line ── */
+.steps-divider-line {
+  border: none;
+  border-top: 2px dashed var(--border-light);
+  margin-bottom: 40px;
+}
+
+/* ── Header ── */
+.steps-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.steps-header .section-title {
+  color: var(--dark-navy);
+  margin-bottom: 10px;
+}
+
+/* ── Cards Grid ── */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* ── Individual Card ── */
+.step-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 40px 28px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Teal Accent Bar at Top ── */
+.step-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #00c9db;
+}
+
+/* ── Step Number ── */
+.step-number {
+  font-family: 'Oswald', sans-serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: #00c9db;
+  margin-bottom: 20px;
+  line-height: 1;
+  opacity: 0.25;
+}
+
+/* ── Step Icon ── */
+.step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+/* ── Step Title ── */
+.step-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--dark-navy);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .steps-section {
+    padding: 40px 0;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .step-card {
+    padding: 32px 24px 28px;
+  }
+
+  .step-number {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .steps-section {
+    padding: 30px 0;
+  }
+
+  .steps-header {
+    margin-bottom: 30px;
+  }
+}

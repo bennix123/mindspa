@@ -1,0 +1,205 @@
+/* ── ProblemGrid Section ─────────────────────────────── */
+.problem-grid {
+  background: linear-gradient(180deg, #b8bcc0 0%, #c8ccd0 100%);
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Silhouette people effect at bottom via pseudo-element */
+.problem-grid::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.08), transparent);
+  pointer-events: none;
+}
+
+.problem-grid__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 40px 60px;
+  align-items: start;
+}
+
+/* ── Individual Items ── */
+.problem-grid__item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Stress item: top-left */
+.problem-grid__item--stress {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Relationships item: bottom-left */
+.problem-grid__item--relationships {
+  grid-column: 1;
+  grid-row: 2;
+  padding-left: 40px;
+}
+
+/* Peace item: spans the right column across both rows */
+.problem-grid__item--peace {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+}
+
+/* ── Headings ── */
+.problem-grid__heading {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--dark-navy, #1E293B);
+  line-height: 1.3;
+  text-transform: none;
+}
+
+/* ── Photo Frame (Polaroid effect) ── */
+.problem-grid__frame {
+  background: #ffffff;
+  padding: 10px 10px 30px 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.problem-grid__frame--rotated-left {
+  transform: rotate(-3deg);
+  max-width: 280px;
+}
+
+.problem-grid__frame--rotated-left:hover {
+  transform: rotate(-1deg) scale(1.02);
+}
+
+.problem-grid__frame--rotated-right {
+  transform: rotate(2.5deg);
+  max-width: 260px;
+}
+
+.problem-grid__frame--rotated-right:hover {
+  transform: rotate(0.5deg) scale(1.02);
+}
+
+.problem-grid__frame--large {
+  transform: rotate(1deg);
+  max-width: 420px;
+  width: 100%;
+}
+
+.problem-grid__frame--large:hover {
+  transform: rotate(-0.5deg) scale(1.01);
+}
+
+/* ── Images inside frames ── */
+.problem-grid__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.problem-grid__frame--rotated-left .problem-grid__image {
+  height: 200px;
+  object-fit: cover;
+}
+
+.problem-grid__frame--rotated-right .problem-grid__image {
+  height: 180px;
+  object-fit: cover;
+}
+
+.problem-grid__frame--large .problem-grid__image {
+  height: 360px;
+  object-fit: cover;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .problem-grid__container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 40px;
+  }
+
+  .problem-grid__item--stress {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .problem-grid__item--relationships {
+    grid-column: 1;
+    grid-row: auto;
+    padding-left: 0;
+  }
+
+  .problem-grid__item--peace {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .problem-grid__heading {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .problem-grid__frame {
+    margin: 0 auto;
+  }
+
+  .problem-grid__frame--rotated-left,
+  .problem-grid__frame--rotated-right {
+    max-width: 260px;
+  }
+
+  .problem-grid__frame--large {
+    max-width: 340px;
+  }
+
+  .problem-grid__frame--large .problem-grid__image {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .problem-grid {
+    padding: 40px 0;
+  }
+
+  .problem-grid__heading {
+    font-size: 1.15rem;
+  }
+
+  .problem-grid__frame--rotated-left,
+  .problem-grid__frame--rotated-right {
+    max-width: 220px;
+  }
+
+  .problem-grid__frame--large {
+    max-width: 280px;
+  }
+
+  .problem-grid__frame--rotated-left .problem-grid__image {
+    height: 160px;
+  }
+
+  .problem-grid__frame--rotated-right .problem-grid__image {
+    height: 140px;
+  }
+
+  .problem-grid__frame--large .problem-grid__image {
+    height: 220px;
+  }
+}

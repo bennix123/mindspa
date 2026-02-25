@@ -1,0 +1,140 @@
+/* ── About Preview Section ───────────────────── */
+.about-preview {
+  position: relative;
+  min-height: 400px;
+  background-image: url('https://images.pexels.com/photos/1295138/pexels-photo-1295138.jpeg?auto=compress&cs=tinysrgb&w=1200');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Semi-transparent overlay ────────────────── */
+.about-preview-overlay {
+  width: 100%;
+  padding: 60px 0;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  min-height: 400px;
+}
+
+/* ── White card with gold left border ────────── */
+.about-preview-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-left: 4px solid #f5c518;
+  border-radius: var(--radius-sm);
+  padding: 40px 44px;
+  max-width: 700px;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Heading ─────────────────────────────────── */
+.about-preview-heading {
+  font-family: 'Oswald', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--dark-navy);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+/* ── Body text ───────────────────────────────── */
+.about-preview-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  color: var(--body-text);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+/* ── Buttons row ─────────────────────────────── */
+.about-preview-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.about-preview-buttons .btn-primary {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.about-preview-buttons .btn-primary:hover {
+  background: var(--blue-hover);
+}
+
+.btn-outline-blue {
+  display: inline-block;
+  padding: 12px 32px;
+  background: transparent;
+  color: var(--blue);
+  border: 2px solid var(--blue);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn-outline-blue:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 768px) {
+  .about-preview {
+    min-height: 320px;
+  }
+
+  .about-preview-overlay {
+    min-height: 320px;
+    padding: 40px 0;
+  }
+
+  .about-preview-card {
+    padding: 28px 24px;
+    max-width: 100%;
+  }
+
+  .about-preview-heading {
+    font-size: 26px;
+  }
+
+  .about-preview-text {
+    font-size: 14px;
+  }
+
+  .about-preview-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .about-preview-buttons .btn-primary,
+  .btn-outline-blue {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-preview-card {
+    padding: 24px 20px;
+  }
+
+  .about-preview-heading {
+    font-size: 22px;
+  }
+}

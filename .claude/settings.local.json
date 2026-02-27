@@ -56,7 +56,12 @@
       "WebFetch(domain:mindspa.onrender.com)",
       "Bash(fuser -k:*)",
       "Bash(ls -la src/components/*.js)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(rm:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }

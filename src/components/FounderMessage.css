@@ -1,7 +1,8 @@
 /* ── Founder Message Section ─────────────────── */
 .founder-message {
   background: var(--white);
-  padding: 60px 0;
+  padding: 70px 0;
+  position: relative;
 }
 
 /* ── Two-column layout ───────────────────────── */
@@ -19,9 +20,9 @@
 
 .founder-photo-wrapper {
   width: 100%;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 32px rgba(58,141,159,0.12);
   clip-path: inset(0 100% 0 0);
   transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
 }

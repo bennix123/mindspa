@@ -3,15 +3,16 @@ import { useParallax } from '../hooks/useParallax';
 import './Hero.css';
 
 const TYPED_PHRASES = [
-  'Do you struggle with insomnia or poor sleep? Learn how our mind spa can help you get better rest and relaxation.',
-  'Do you want to lose weight, deal with acidity, panic attacks, BP and Diabetes, get help now.',
-  'Are you looking for natural ways to boost your mental health as well as physical health and wellbeing? Explore our services.',
+  'Struggling with sleepless nights? Discover gentle, proven techniques to restore peaceful rest and deep relaxation.',
+  'Feeling overwhelmed by stress, anxiety, or panic? You are not alone — let us guide you toward lasting calm and balance.',
+  'Your mind and body deserve care. Explore our holistic approach to mental wellness, emotional healing, and inner peace.',
+  'Take the first step toward a healthier, calmer you. Our compassionate experts are here to support your journey.',
 ];
 
-const TYPING_SPEED = 40;
-const DELETING_SPEED = 20;
-const PAUSE_AFTER_TYPING = 2000;
-const PAUSE_AFTER_DELETING = 500;
+const TYPING_SPEED = 45;
+const DELETING_SPEED = 18;
+const PAUSE_AFTER_TYPING = 3000;
+const PAUSE_AFTER_DELETING = 800;
 
 const Hero = () => {
   const [phraseIndex, setPhraseIndex] = useState(0);
@@ -71,8 +72,8 @@ const Hero = () => {
 
       <div className="hero__content">
         <h1 className="hero__title">
-          <span className="hero__title-fulfill">{loaded ? 'Fulfill' : ''}</span>
-          <span className="hero__title-main">{loaded ? 'YOUR ASPIRATIONS & DREAMS!' : ''}</span>
+          <span className="hero__title-fulfill">{loaded ? 'Find Your Inner' : ''}</span>
+          <span className="hero__title-main">{loaded ? 'PEACE & WELL-BEING' : ''}</span>
         </h1>
 
         <div className="hero__typed-wrap">

@@ -8,26 +8,60 @@
 }
 
 :root {
-  --blue: #045CB4;
-  --blue-hover: #0349a0;
-  --dark-navy: #1E293B;
-  --body-text: #334155;
-  --light-grey: #f7f9fb;
+  /* Primary - calming teal-blue */
+  --blue: #3A8D9F;
+  --blue-hover: #2D7A8C;
+  --blue-light: #E8F4F7;
+
+  /* Text - warm, softer tones */
+  --dark-navy: #2C3E50;
+  --body-text: #4A5568;
+  --text-warm: #5D6B7A;
+
+  /* Backgrounds */
+  --light-grey: #F5F7F6;
   --white: #ffffff;
-  --border-light: #e2e8f0;
-  --pink: #e91e8c;
-  --pink-light: #ff6ba8;
-  --gradient-banner: linear-gradient(135deg, #00c9db 0%, #e91e8c 100%);
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
-  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --cream: #FAFAF8;
+  --sage-light: #F0F5F1;
+  --lavender-light: #F3F0F8;
+
+  /* Borders */
+  --border-light: #E2E8E4;
+  --border-sage: #D4DDD6;
+
+  /* Accent - soft rose & warm tones */
+  --pink: #C47D8E;
+  --pink-light: #D4949F;
+  --rose: #D4949F;
+  --sage: #7BA68D;
+  --sage-dark: #5E8E6E;
+  --lavender: #9B8EC4;
+  --warm-gold: #D4A853;
+
+  /* Calming gradients */
+  --gradient-banner: linear-gradient(135deg, #3A8D9F 0%, #7BA68D 50%, #9B8EC4 100%);
+  --gradient-calm: linear-gradient(180deg, #F5F7F6 0%, #E8F4F7 50%, #F3F0F8 100%);
+  --gradient-hero: linear-gradient(135deg, rgba(58,141,159,0.85) 0%, rgba(123,166,141,0.75) 50%, rgba(155,142,196,0.8) 100%);
+  --gradient-warm: linear-gradient(135deg, #F0F5F1 0%, #FAFAF8 50%, #F3F0F8 100%);
+  --gradient-section: linear-gradient(180deg, #ffffff 0%, #F5F7F6 100%);
+
+  /* Shadows - softer, warmer */
+  --shadow-sm: 0 1px 4px rgba(58,141,159,0.06);
+  --shadow-md: 0 4px 16px rgba(58,141,159,0.08);
+  --shadow-lg: 0 8px 32px rgba(58,141,159,0.1);
+  --shadow-glow: 0 4px 20px rgba(58,141,159,0.12);
+  --shadow-warm: 0 4px 20px rgba(196,125,142,0.1);
+
+  /* Radii - softer, more rounded */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
   --max-width: 1200px;
-  --grey-section: #c0c4c8;
-  --yellow: #f5c518;
-  --teal-bg: #b2d8d8;
+  --grey-section: #E8EDE9;
+  --yellow: #D4A853;
+  --teal-bg: #E0EFED;
 }
 
 html {
@@ -38,8 +72,8 @@ html {
 body {
   font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--body-text);
-  background: var(--white);
-  line-height: 1.6;
+  background: var(--cream);
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -91,7 +125,21 @@ input, textarea, select {
   font-weight: 400;
   text-align: center;
   color: var(--dark-navy);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* Calming subtitle for sections */
+.section-subtitle {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+  text-align: center;
+  color: var(--text-warm, #5D6B7A);
+  max-width: 600px;
+  margin: 0 auto 8px;
+  line-height: 1.6;
 }
 
 .section-divider {
@@ -103,32 +151,36 @@ input, textarea, select {
 }
 
 .section-divider .dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: var(--blue);
+  background: linear-gradient(135deg, var(--blue), var(--sage));
+  box-shadow: 0 0 8px rgba(58,141,159,0.3);
 }
 
 .section-divider .line {
-  width: 30px;
-  height: 3px;
-  background: var(--blue);
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+  border-radius: 2px;
 }
 
 .btn-primary {
   display: inline-block;
-  padding: 12px 32px;
-  background: var(--blue);
+  padding: 14px 36px;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--sage) 100%);
   color: var(--white);
-  border-radius: var(--radius-sm);
+  border-radius: 50px;
   font-size: 15px;
   font-weight: 600;
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.3px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: center;
   border: none;
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(58,141,159,0.2);
 }
 
 .btn-primary::after {
@@ -138,15 +190,15 @@ input, textarea, select {
   left: -60%;
   width: 40%;
   height: 200%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
   transform: skewX(-25deg);
   transition: left 0.6s ease;
 }
 
 .btn-primary:hover {
-  background: var(--blue-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(4, 92, 180, 0.3);
+  background: linear-gradient(135deg, var(--blue-hover) 0%, var(--sage-dark) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(58,141,159,0.3);
 }
 
 .btn-primary:hover::after {
@@ -156,17 +208,19 @@ input, textarea, select {
 .btn-pink {
   display: inline-block;
   padding: 14px 36px;
-  background: var(--pink);
+  background: linear-gradient(135deg, var(--pink) 0%, var(--lavender) 100%);
   color: var(--white);
-  border-radius: var(--radius-sm);
+  border-radius: 50px;
   font-size: 15px;
   font-weight: 600;
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.3px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: center;
   border: none;
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(196,125,142,0.2);
 }
 
 .btn-pink::after {
@@ -176,15 +230,15 @@ input, textarea, select {
   left: -60%;
   width: 40%;
   height: 200%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
   transform: skewX(-25deg);
   transition: left 0.6s ease;
 }
 
 .btn-pink:hover {
-  background: var(--pink-light);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(233, 30, 140, 0.3);
+  background: linear-gradient(135deg, var(--pink-light) 0%, #A89BD0 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(196,125,142,0.3);
 }
 
 .btn-pink:hover::after {

@@ -340,11 +340,11 @@
 .bg-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.06;
+  filter: blur(80px);
+  opacity: 0.08;
   pointer-events: none;
   z-index: 0;
-  animation: blobMorph 12s ease-in-out infinite alternate;
+  animation: blobMorph 18s ease-in-out infinite alternate;
 }
 
 @keyframes blobMorph {
@@ -409,6 +409,105 @@
 
 .reveal.visible .section-divider .dot {
   animation: dotBounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s both;
+}
+
+/* ============================================
+   CALMING ANIMATIONS
+   ============================================ */
+
+/* Gentle breathing effect - like meditation */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.9;
+  }
+}
+
+/* Soft ambient glow */
+@keyframes ambientGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(58,141,159,0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(123,166,141,0.15);
+  }
+}
+
+/* Gentle wave motion */
+@keyframes gentleWave {
+  0% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(5px) translateY(-3px); }
+  50% { transform: translateX(0) translateY(-6px); }
+  75% { transform: translateX(-5px) translateY(-3px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+
+/* Soft gradient shift for backgrounds */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Calming orb float */
+@keyframes calmFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  33% {
+    transform: translate(10px, -15px) scale(1.05);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translate(-8px, -8px) scale(0.98);
+    opacity: 0.5;
+  }
+}
+
+/* Soft fade-in bloom */
+@keyframes bloomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* ============================================
+   CALMING DECORATIVE ELEMENTS
+   ============================================ */
+
+.calm-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(40px);
+}
+
+.calm-orb--teal {
+  background: radial-gradient(circle, rgba(58,141,159,0.15), transparent 70%);
+  animation: calmFloat 12s ease-in-out infinite;
+}
+
+.calm-orb--sage {
+  background: radial-gradient(circle, rgba(123,166,141,0.12), transparent 70%);
+  animation: calmFloat 15s ease-in-out infinite 2s;
+}
+
+.calm-orb--lavender {
+  background: radial-gradient(circle, rgba(155,142,196,0.1), transparent 70%);
+  animation: calmFloat 18s ease-in-out infinite 4s;
 }
 
 /* ============================================

@@ -1,7 +1,7 @@
 /* ── Quote Banner ──────────────────────────────────── */
 .quote-banner {
   background: var(--gradient-banner);
-  padding: 50px 0;
+  padding: 60px 0;
   text-align: center;
   position: relative;
   overflow: hidden;

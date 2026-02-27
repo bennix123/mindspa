@@ -1,7 +1,8 @@
 /* ── Blog Section ────────────────────────────── */
 .blog-section {
   background: var(--white);
-  padding: 60px 0;
+  padding: 70px 0;
+  position: relative;
 }
 
 /* ── Card grid: 3 columns ────────────────────── */
@@ -16,18 +17,18 @@
 .blog-card {
   display: block;
   background: var(--white);
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 16px rgba(58,141,159,0.06);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   color: inherit;
-  border: 1px solid var(--border-light);
+  border: 1px solid rgba(58,141,159,0.06);
 }
 
 .blog-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(58,141,159,0.1), 0 4px 12px rgba(123,166,141,0.06);
 }
 
 /* ── Tilt wrapper for blog cards ── */
@@ -58,13 +59,14 @@
   position: absolute;
   bottom: 12px;
   left: 12px;
-  background: var(--pink, #e91e8c);
+  background: linear-gradient(135deg, var(--blue), var(--sage));
   color: var(--white);
-  border-radius: var(--radius-sm);
-  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
   text-align: center;
   line-height: 1.1;
   min-width: 50px;
+  box-shadow: 0 4px 12px rgba(58,141,159,0.2);
 }
 
 .blog-date-day {

@@ -1,7 +1,7 @@
 /* ── Get Help With Section ─────────────────────── */
 .get-help {
-  padding: 60px 20px;
-  background: var(--white);
+  padding: 70px 20px;
+  background: var(--gradient-section, linear-gradient(180deg, #ffffff 0%, #F5F7F6 100%));
 }
 
 .get-help__container {
@@ -39,16 +39,18 @@
 }
 
 .get-help__divider .dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: var(--blue);
+  background: linear-gradient(135deg, var(--blue), var(--sage));
+  box-shadow: 0 0 8px rgba(58,141,159,0.3);
 }
 
 .get-help__divider .line {
-  width: 30px;
-  height: 3px;
-  background: var(--blue);
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+  border-radius: 2px;
 }
 
 /* Tree / timeline layout */
@@ -108,11 +110,13 @@
 }
 
 .get-help__marker--orange {
-  background: #e8913a;
+  background: var(--warm-gold, #D4A853);
+  border-radius: 4px;
 }
 
 .get-help__marker--teal {
-  background: #4db6ac;
+  background: var(--sage, #7BA68D);
+  border-radius: 4px;
 }
 
 /* Condition text */

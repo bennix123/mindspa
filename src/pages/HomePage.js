@@ -18,15 +18,15 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <WaveDivider color="#b8bcc0" />
+      <WaveDivider color="#E0EFED" />
       <ProblemGrid />
-      <WaveDivider color="#f7f9fb" />
+      <WaveDivider color="#F5F7F6" />
       <FeatureCards />
       <WaveDivider color="#ffffff" />
       <FounderMessage />
       <AboutPreview />
       <Blog />
-      <WaveDivider color="#1a1a2e" />
+      <WaveDivider color="#1a2a3a" />
       <Testimonials />
       <QuoteBanner />
       <WaveDivider color="#ffffff" />

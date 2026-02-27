@@ -1,5 +1,6 @@
 import React from 'react';
 import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
+import TiltCard from './TiltCard';
 import './Steps.css';
 
 const stepsData = [
@@ -62,12 +63,12 @@ const Steps = () => {
 
         <div className="steps-grid" ref={gridRef}>
           {stepsData.map((step, index) => (
-            <div className="step-card stagger-item hover-lift" key={index}>
+            <TiltCard className="step-card stagger-item hover-lift" key={index}>
               <div className="step-card-accent"></div>
               <div className="step-number">{step.number}</div>
               <div className="step-icon">{step.icon}</div>
               <h3 className="step-title">{step.title}</h3>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

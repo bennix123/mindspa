@@ -30,6 +30,11 @@
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
 }
 
+/* ── Tilt wrapper for blog cards ── */
+.blog-card-tilt {
+  border-radius: 16px;
+}
+
 /* ── Card image area (for cards with thumbnails) */
 .blog-card-image {
   position: relative;

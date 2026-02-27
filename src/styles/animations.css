@@ -299,6 +299,119 @@
 }
 
 /* ============================================
+   3D TILT CARD
+   ============================================ */
+
+.tilt-card {
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.tilt-card:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   RIPPLE EFFECT
+   ============================================ */
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   FLOATING BACKGROUND BLOBS
+   ============================================ */
+
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+  animation: blobMorph 12s ease-in-out infinite alternate;
+}
+
+@keyframes blobMorph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: translate(20px, -10px) scale(1.05);
+  }
+  100% {
+    border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%;
+    transform: translate(-10px, 15px) scale(0.95);
+  }
+}
+
+/* ============================================
+   PLAY BUTTON PULSE RINGS
+   ============================================ */
+
+@keyframes playPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   MARKER POP (timeline items)
+   ============================================ */
+
+@keyframes markerPop {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* ============================================
+   ICON PULSE (on hover)
+   ============================================ */
+
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* ============================================
+   DOT BOUNCE (section dividers)
+   ============================================ */
+
+@keyframes dotBounce {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+.reveal.visible .section-divider .dot {
+  animation: dotBounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s both;
+}
+
+/* ============================================
    PARALLAX HELPER
    ============================================ */
 
@@ -320,7 +433,12 @@
   .hover-glow,
   .btn-shine::after,
   .hover-underline::after,
-  .parallax-bg {
+  .parallax-bg,
+  .tilt-card,
+  .bg-blob,
+  .ripple-effect,
+  .hero__particle,
+  .hero__title-main {
     transition: none !important;
     animation: none !important;
     transform: none !important;

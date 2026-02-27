@@ -12,18 +12,24 @@ import GetHelpWith from '../components/GetHelpWith';
 import Gallery from '../components/Gallery';
 import ServicesSection from '../components/ServicesSection';
 import QuoteSimple from '../components/QuoteSimple';
+import WaveDivider from '../components/WaveDivider';
 
 function HomePage() {
   return (
     <>
       <Hero />
+      <WaveDivider color="#b8bcc0" />
       <ProblemGrid />
+      <WaveDivider color="#f7f9fb" />
       <FeatureCards />
+      <WaveDivider color="#ffffff" />
       <FounderMessage />
       <AboutPreview />
       <Blog />
+      <WaveDivider color="#1a1a2e" />
       <Testimonials />
       <QuoteBanner />
+      <WaveDivider color="#ffffff" />
       <Steps />
       <GetHelpWith />
       <Gallery />

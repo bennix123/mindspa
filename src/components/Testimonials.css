@@ -137,6 +137,25 @@
 
 .testimonials-play-btn {
   transition: transform 0.3s ease;
+  position: relative;
+}
+
+.testimonials-play-btn::before,
+.testimonials-play-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  animation: playPulse 2s ease-out infinite;
+}
+
+.testimonials-play-btn::after {
+  animation-delay: 0.6s;
 }
 
 .testimonials-video-placeholder:hover .testimonials-play-btn {

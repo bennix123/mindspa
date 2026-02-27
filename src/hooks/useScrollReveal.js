@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * Custom hook for scroll-reveal animations using Intersection Observer.
@@ -88,7 +88,6 @@ export const useCountUp = (end, duration = 2000) => {
   useEffect(() => {
     if (!isVisible) return;
 
-    let start = 0;
     const startTime = performance.now();
 
     const animate = (currentTime) => {

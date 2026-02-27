@@ -72,7 +72,25 @@
   padding: 10px 10px 30px 10px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.1);
   display: inline-block;
-  transition: transform 0.3s ease;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+/* Tape decoration on polaroids */
+.problem-grid__frame::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 40px;
+  height: 16px;
+  background: rgba(245, 197, 24, 0.7);
+  border-radius: 2px;
+  z-index: 2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .problem-grid__frame--rotated-left {
@@ -82,6 +100,7 @@
 
 .problem-grid__frame--rotated-left:hover {
   transform: rotate(-1deg) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .problem-grid__frame--rotated-right {
@@ -91,6 +110,7 @@
 
 .problem-grid__frame--rotated-right:hover {
   transform: rotate(0.5deg) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .problem-grid__frame--large {
@@ -101,6 +121,7 @@
 
 .problem-grid__frame--large:hover {
   transform: rotate(-0.5deg) scale(1.01);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* ── Images inside frames ── */

@@ -10,13 +10,18 @@
   text-align: center;
 }
 
-/* Decorative line above */
+/* Decorative line above — draws from center when visible */
 .quote-simple__line {
-  width: 60px;
+  width: 0;
   height: 2px;
   background: var(--blue);
   margin: 0 auto 24px;
   opacity: 0.5;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.reveal.visible .quote-simple__line {
+  width: 60px;
 }
 
 /* Quote text */

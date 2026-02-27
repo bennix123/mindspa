@@ -15,6 +15,7 @@ const CONDITIONS = [
 
 const GetHelpWith = () => {
   const [titleRef, titleVis] = useScrollReveal();
+  const [treeVisRef, treeVis] = useScrollReveal({ threshold: 0.1 });
   const treeRef = useStaggerReveal({ staggerDelay: 100, childSelector: '.get-help__item' });
 
   return (
@@ -33,7 +34,7 @@ const GetHelpWith = () => {
           </div>
         </div>
 
-        <div className="get-help__tree" ref={treeRef}>
+        <div className={`get-help__tree ${treeVis ? 'tree-visible' : ''}`} ref={(el) => { treeRef.current = el; treeVisRef.current = el; }}>
           {CONDITIONS.map((item, index) => (
             <div className="get-help__item stagger-item" key={index}>
               <span

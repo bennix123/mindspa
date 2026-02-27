@@ -3,6 +3,35 @@
   background: var(--gradient-banner);
   padding: 50px 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Large decorative quotation mark */
+.quote-banner::before {
+  content: '\201C';
+  position: absolute;
+  left: 8%;
+  top: -20px;
+  font-size: 200px;
+  color: rgba(255, 255, 255, 0.08);
+  font-family: Georgia, serif;
+  animation: floatUp 6s ease-in-out infinite;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.quote-banner::after {
+  content: '\201D';
+  position: absolute;
+  right: 8%;
+  bottom: -40px;
+  font-size: 200px;
+  color: rgba(255, 255, 255, 0.08);
+  font-family: Georgia, serif;
+  animation: floatUp 7s ease-in-out infinite 1s;
+  pointer-events: none;
+  line-height: 1;
 }
 
 .quote-banner-text {
@@ -10,11 +39,22 @@
   font-size: 28px;
   font-weight: 300;
   font-style: italic;
-  color: var(--white);
   line-height: 1.5;
   max-width: 800px;
   margin: 0 auto;
   letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 30%, rgba(255, 255, 255, 0.7) 50%, #ffffff 70%, #ffffff 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: quoteBannerShimmer 5s ease-in-out infinite;
+}
+
+@keyframes quoteBannerShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* ── Responsive ── */

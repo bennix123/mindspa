@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParallax } from '../hooks/useParallax';
 import './Hero.css';
 
 const TYPED_PHRASES = [
@@ -49,9 +50,11 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const parallaxRef = useParallax(0.3);
+
   return (
     <section id="home" className={`hero ${loaded ? 'hero--loaded' : ''}`}>
-      <div className="hero__bg">
+      <div className="hero__bg" ref={parallaxRef}>
         <img
           src="/client-pic/hero-bg.jpg"
           alt=""
@@ -60,6 +63,11 @@ const Hero = () => {
         />
       </div>
       <div className="hero__overlay" />
+
+      {/* Floating particles */}
+      <div className="hero__particle hero__particle--1" aria-hidden="true" />
+      <div className="hero__particle hero__particle--2" aria-hidden="true" />
+      <div className="hero__particle hero__particle--3" aria-hidden="true" />
 
       <div className="hero__content">
         <h1 className="hero__title">

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useContent } from '../context/ContentContext';
 import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
+import TiltCard from './TiltCard';
 import './Blog.css';
 
 const BLOG_IMAGES = [
@@ -17,7 +18,8 @@ const BlogCard = ({ post, index, hasImage }) => {
   const imgSrc = BLOG_IMAGES[index % BLOG_IMAGES.length];
 
   return (
-    <Link to={`/blog/${post.id}`} className="blog-card stagger-item hover-lift">
+    <TiltCard className="blog-card-tilt stagger-item">
+    <Link to={`/blog/${post.id}`} className="blog-card hover-lift">
       {hasImage && (
         <div className="blog-card-image">
           <img src={imgSrc} alt={post.title} />
@@ -45,6 +47,7 @@ const BlogCard = ({ post, index, hasImage }) => {
         <h3 className="blog-card-title">{post.title}</h3>
       </div>
     </Link>
+    </TiltCard>
   );
 };
 

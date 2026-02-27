@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStaggerReveal } from '../hooks/useScrollReveal';
+import TiltCard from './TiltCard';
 import './FeatureCards.css';
 
 const FAMILY_IMG =
@@ -27,7 +28,7 @@ const FeatureCards = () => {
     <section className="feature-cards">
       <div className="feature-cards__container" ref={staggerRef}>
         {cards.map((card, index) => (
-          <div key={index} className="feature-cards__card stagger-item hover-lift">
+          <TiltCard key={index} className="feature-cards__card stagger-item hover-lift">
             <div className="feature-cards__image-wrap hover-zoom">
               <img
                 src={card.image}
@@ -38,7 +39,7 @@ const FeatureCards = () => {
             <div className="feature-cards__body">
               <p className="feature-cards__text">{card.text}</p>
             </div>
-          </div>
+          </TiltCard>
         ))}
       </div>
     </section>

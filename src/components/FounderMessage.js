@@ -8,8 +8,10 @@ const FounderMessage = () => {
   const [textRef, textVis] = useScrollReveal({ threshold: 0.1 });
 
   return (
-    <section className="founder-message">
-      <div className="container">
+    <section className="founder-message" style={{ position: 'relative', overflow: 'hidden' }}>
+      <div className="bg-blob" style={{ width: '300px', height: '300px', background: 'var(--blue)', top: '10%', right: '-50px' }} aria-hidden="true" />
+      <div className="bg-blob" style={{ width: '250px', height: '250px', background: '#00c9db', bottom: '5%', left: '-80px', animationDelay: '-5s' }} aria-hidden="true" />
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div ref={titleRef} className={`reveal reveal-up ${titleVis ? 'visible' : ''}`}>
           <h2 className="section-title">Founder's Message</h2>
           <div className="section-divider">

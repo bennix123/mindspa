@@ -59,17 +59,22 @@
   position: relative;
 }
 
-/* Vertical connector line */
+/* Vertical connector line — animated draw on scroll */
 .get-help__tree::before {
   content: '';
   position: absolute;
   top: 0;
-  bottom: 0;
   left: 50%;
   width: 2px;
+  height: 0;
   background: var(--border-light);
   transform: translateX(-50%);
   z-index: 0;
+  transition: height 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.get-help__tree.tree-visible::before {
+  height: 100%;
 }
 
 /* Individual condition item */
@@ -88,12 +93,18 @@
   margin-bottom: 0;
 }
 
-/* Colored square bullet */
+/* Colored square bullet — pops in when revealed */
 .get-help__marker {
   width: 14px;
   height: 14px;
   flex-shrink: 0;
   border-radius: 2px;
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.get-help__item.revealed .get-help__marker {
+  transform: scale(1);
 }
 
 .get-help__marker--orange {

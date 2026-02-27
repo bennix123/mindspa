@@ -4,12 +4,12 @@ import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
 import './Gallery.css';
 
 const GALLERY_IMAGES = [
-  { src: '/client-pic/1.jpg', alt: 'MindSpa gallery image 1' },
-  { src: '/client-pic/2.jpg', alt: 'MindSpa gallery image 2' },
-  { src: '/client-pic/3.jpg', alt: 'MindSpa gallery image 3' },
-  { src: '/client-pic/4.jpg', alt: 'MindSpa gallery image 4' },
-  { src: '/client-pic/5.jpg', alt: 'MindSpa gallery image 5' },
-  { src: '/client-pic/6.jpg', alt: 'MindSpa gallery image 6' },
+  { src: '/client-pic/1.jpeg', alt: 'MindSpa gallery image 1' },
+  { src: '/client-pic/2.jpeg', alt: 'MindSpa gallery image 2' },
+  { src: '/client-pic/3.jpeg', alt: 'MindSpa gallery image 3' },
+  { src: '/client-pic/4.jpeg', alt: 'MindSpa gallery image 4' },
+  { src: '/client-pic/5.jpeg', alt: 'MindSpa gallery image 5' },
+  { src: '/client-pic/6.jpeg', alt: 'MindSpa gallery image 6' },
 ];
 
 const Gallery = () => {

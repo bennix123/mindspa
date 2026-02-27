@@ -2,17 +2,16 @@ import React from 'react';
 import PageBanner from '../components/PageBanner';
 
 const GALLERY_IMAGES = [
-  { src: '/client-pic/1.jpg', alt: 'MindSpa Session 1' },
-  { src: '/client-pic/2.jpg', alt: 'MindSpa Session 2' },
-  { src: '/client-pic/3.jpg', alt: 'MindSpa Session 3' },
-  { src: '/client-pic/4.jpg', alt: 'MindSpa Session 4' },
-  { src: '/client-pic/5.jpg', alt: 'MindSpa Session 5' },
-  { src: '/client-pic/6.jpg', alt: 'MindSpa Session 6' },
-  { src: '/client-pic/7.jpg', alt: 'MindSpa Session 7' },
-  { src: '/client-pic/8.jpg', alt: 'MindSpa Session 8' },
-  { src: '/client-pic/9.jpg', alt: 'MindSpa Session 9' },
-  { src: '/client-pic/10.jpg', alt: 'MindSpa Session 10' },
-  { src: '/client-pic/11.jpg', alt: 'MindSpa Session 11' },
+  { src: '/client-pic/1.jpeg', alt: 'MindSpa Session 1' },
+  { src: '/client-pic/2.jpeg', alt: 'MindSpa Session 2' },
+  { src: '/client-pic/3.jpeg', alt: 'MindSpa Session 3' },
+  { src: '/client-pic/4.jpeg', alt: 'MindSpa Session 4' },
+  { src: '/client-pic/5.jpeg', alt: 'MindSpa Session 5' },
+  { src: '/client-pic/6.jpeg', alt: 'MindSpa Session 6' },
+  { src: '/client-pic/7.jpeg', alt: 'MindSpa Session 7' },
+  { src: '/client-pic/8.jpeg', alt: 'MindSpa Session 8' },
+  { src: '/client-pic/9.jpeg', alt: 'MindSpa Session 9' },
+  { src: '/client-pic/10.jpeg', alt: 'MindSpa Session 10' },
 ];
 
 const galleryStyles = {

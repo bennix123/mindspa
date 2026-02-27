@@ -51,7 +51,12 @@
       "Bash(taskkill:*)",
       "Bash(wc:*)",
       "Bash(cmd.exe //c \"for /f \"\"tokens=5\"\" %a in \\(''netstat -ano ^| findstr :3005 ^| findstr LISTENING''\\) do taskkill /F /PID %a\")",
-      "Bash(/mnt/c/Windows/System32/cmd.exe /c \"for /f \"\"tokens=5\"\" %a in \\(''netstat -ano ^| findstr :3005 ^| findstr LISTENING''\\) do taskkill /F /PID %a\")"
+      "Bash(/mnt/c/Windows/System32/cmd.exe /c \"for /f \"\"tokens=5\"\" %a in \\(''netstat -ano ^| findstr :3005 ^| findstr LISTENING''\\) do taskkill /F /PID %a\")",
+      "Bash(git pull:*)",
+      "WebFetch(domain:mindspa.onrender.com)",
+      "Bash(fuser -k:*)",
+      "Bash(ls -la src/components/*.js)",
+      "Bash(mv:*)"
     ]
   }
 }

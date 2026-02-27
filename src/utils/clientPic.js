@@ -1,6 +1,7 @@
 /**
  * Images from public/client-pic folder.
- * 1–7.jpg = Founder (Dr. Manju Agrawal) — used across Hero, About, Founder section.
+ * 1–10.jpeg = Gallery images.
+ * intro_one.jpeg = Founder intro photo.
  * testimonial1–3.jpg = Testimonial avatars.
  * client1–12.jpg = Client Presence grid.
  */
@@ -8,9 +9,12 @@ const BASE = process.env.PUBLIC_URL || '';
 
 export const clientPic = (filename) => `${BASE}/client-pic/${filename}`;
 
-/** Founder (Manju) photos: 1.jpg through 11.jpg */
-export const founderImageCount = 11;
-export const founderImage = (n) => clientPic(`${n}.jpg`);
+/** Gallery photos: 1.jpeg through 10.jpeg */
+export const galleryImageCount = 10;
+export const galleryImage = (n) => clientPic(`${n}.jpeg`);
+
+/** Founder intro photo */
+export const founderIntroImage = clientPic('intro_one.jpeg');
 
 /** Background images */
 export const heroBgImage = clientPic('hero-bg.jpg');

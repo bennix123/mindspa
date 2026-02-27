@@ -23,7 +23,7 @@ const FounderMessage = () => {
           <div ref={imgRef} className={`founder-image-col reveal reveal-left ${imgVis ? 'visible' : ''}`}>
             <div className="founder-photo-wrapper">
               <img
-                src="/client-pic/1.jpg"
+                src="/client-pic/intro_one.jpeg"
                 alt="Dr. Manju Agrawal"
                 className="founder-photo"
               />

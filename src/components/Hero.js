@@ -57,7 +57,7 @@ const Hero = () => {
     <section id="home" className={`hero ${loaded ? 'hero--loaded' : ''}`}>
       <div className="hero__bg" ref={parallaxRef}>
         <img
-          src="/client-pic/hero-bg.jpg"
+          src="/client-pic/landing_page.jpeg"
           alt=""
           aria-hidden="true"
           className="hero__bg-img"

@@ -1,40 +1,28 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import ProblemGrid from '../components/ProblemGrid';
-import FeatureCards from '../components/FeatureCards';
-import FounderMessage from '../components/FounderMessage';
-import AboutPreview from '../components/AboutPreview';
-import Blog from '../components/Blog';
+import ServiceCards from '../components/ServiceCards';
+import AboutSection from '../components/AboutSection';
+import StatsCounter from '../components/StatsCounter';
+import WhyChooseUs from '../components/WhyChooseUs';
+import PopularServices from '../components/PopularServices';
+import Team from '../components/Team';
 import Testimonials from '../components/Testimonials';
-import QuoteBanner from '../components/QuoteBanner';
-import Steps from '../components/Steps';
-import GetHelpWith from '../components/GetHelpWith';
-import Gallery from '../components/Gallery';
-import ServicesSection from '../components/ServicesSection';
-import QuoteSimple from '../components/QuoteSimple';
-import WaveDivider from '../components/WaveDivider';
+import Blog from '../components/Blog';
+import AppointmentForm from '../components/AppointmentForm';
 
 function HomePage() {
   return (
     <>
       <Hero />
-      <WaveDivider color="#E0EFED" />
-      <ProblemGrid />
-      <WaveDivider color="#F5F7F6" />
-      <FeatureCards />
-      <WaveDivider color="#ffffff" />
-      <FounderMessage />
-      <AboutPreview />
-      <Blog />
-      <WaveDivider color="#1a2a3a" />
+      <ServiceCards />
+      <AboutSection />
+      <StatsCounter />
+      <WhyChooseUs />
+      <PopularServices />
+      <Team />
       <Testimonials />
-      <QuoteBanner />
-      <WaveDivider color="#ffffff" />
-      <Steps />
-      <GetHelpWith />
-      <Gallery />
-      <ServicesSection />
-      <QuoteSimple />
+      <Blog />
+      <AppointmentForm />
     </>
   );
 }

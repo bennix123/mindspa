@@ -1,0 +1,220 @@
+/* === ABOUT SECTION === */
+.about-section {
+  padding: 100px 0;
+  background: var(--bg-light);
+}
+
+.about-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left - Images */
+.about-section__left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-section__left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-section__images {
+  position: relative;
+  min-height: 450px;
+}
+
+.about-section__img-main {
+  width: 65%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.about-section__img-main img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.about-section__img-secondary {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 55%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 5px solid var(--bg-light);
+}
+
+.about-section__img-secondary img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.about-section__experience {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--accent);
+  color: var(--text-white);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(64,180,200,0.4);
+  z-index: 2;
+}
+
+.about-section__exp-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.about-section__exp-text {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: 4px;
+}
+
+/* Right - Content */
+.about-section__right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.about-section__right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-section__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: var(--text-heading);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.about-section__desc {
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.about-section__specialties {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.about-section__specialty {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  background: var(--bg-white);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+}
+
+.about-section__specialty:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.about-section__specialty-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--accent);
+  min-width: 40px;
+}
+
+.about-section__specialty h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 2px;
+}
+
+.about-section__specialty p {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.about-section__founder {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-light);
+}
+
+.about-section__founder-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-heading);
+}
+
+.about-section__founder-role {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-section__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-section__images {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .about-section__title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 60px 0;
+  }
+
+  .about-section__specialties {
+    grid-template-columns: 1fr;
+  }
+
+  .about-section__img-main img {
+    height: 250px;
+  }
+
+  .about-section__img-secondary img {
+    height: 200px;
+  }
+}

@@ -1,0 +1,127 @@
+/* === SERVICE CARDS === */
+.service-cards {
+  padding: 80px 0;
+  background: var(--bg-white);
+}
+
+.service-cards__header {
+  margin-bottom: 50px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.service-cards__header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-cards__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card__icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: var(--accent);
+  transition: all 0.4s ease;
+}
+
+.service-card:hover .service-card__icon {
+  background: var(--accent);
+  color: var(--text-white);
+  transform: scale(1.05);
+}
+
+.service-card__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text-heading);
+  margin-bottom: 14px;
+}
+
+.service-card__desc {
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.service-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.service-card__link:hover {
+  gap: 10px;
+  color: var(--accent-hover);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .service-cards__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .service-cards {
+    padding: 60px 0;
+  }
+  .service-cards__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .service-card {
+    padding: 30px 24px;
+  }
+}

@@ -22,7 +22,7 @@
   width: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(58,141,159,0.12);
+  box-shadow: 0 8px 32px rgba(0,208,132,0.12);
   clip-path: inset(0 100% 0 0);
   transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
 }

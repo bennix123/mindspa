@@ -106,14 +106,14 @@ const contactStyles = {
     margin: 0,
   },
   successMsg: {
-    background: '#ecfdf5',
-    color: '#065f46',
+    background: '#e6faf2',
+    color: '#00b871',
     padding: '14px 20px',
     borderRadius: 'var(--radius-sm)',
     marginBottom: '20px',
     fontSize: '14px',
     fontWeight: 500,
-    border: '1px solid #a7f3d0',
+    border: '1px solid #b5e8d0',
   },
 };
 

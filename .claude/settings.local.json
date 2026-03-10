@@ -66,7 +66,15 @@
       "WebFetch(domain:www.youtube.com)",
       "Bash(curl:*)",
       "Bash(powershell.exe:*)",
-      "Bash(npx react-scripts:*)"
+      "Bash(npx react-scripts:*)",
+      "Bash(cd D:/frontend/mindspa && npm start 2>&1 | head -20)",
+      "Bash(code --list-extensions 2>/dev/null)",
+      "Bash(code --install-extension ritwickdey.LiveServer && code --install-extension esbenp.prettier-vscode && code --install-extension dbaeumer.vscode-eslint && code --install-extension formulahendry.auto-rename-tag && code --install-extension formulahendry.auto-close-tag && code --install-extension christian-kohler.path-intellisense && code --install-extension zignd.html-css-class-completion && code --install-extension ecmel.vscode-html-css && code --install-extension pranaygp.vscode-css-peek)",
+      "Bash(code --install-extension dsznajder.es7-react-js-snippets && code --install-extension xabikos.JavaScriptSnippets && code --install-extension naumovs.color-highlight && code --install-extension streetsidesoftware.code-spell-checker)",
+      "Bash(cd D:/frontend/mindspa/src && find . -name \"*.css\" -o -name \"*.js\" | xargs grep -l \"#b06ce8\" 2>/dev/null | while read f; do sed -i 's/#b06ce8/#fdd44b/g' \"$f\"; done && echo \"Done hex light-yellow\")",
+      "Bash(cd D:/frontend/mindspa/src && find . -name \"*.css\" -o -name \"*.js\" | xargs grep -l \"#ede6fb\" 2>/dev/null | while read f; do sed -i 's/#ede6fb/#fef9e7/g' \"$f\"; done && echo \"Done hex light-yellow-bg\")",
+      "Bash(cd D:/frontend/mindspa/src && find . -name \"*.css\" -o -name \"*.js\" | xargs grep -l \"#8a42cc\" 2>/dev/null | while read f; do sed -i 's/#8a42cc/#e0a600/g' \"$f\"; done && echo \"Done hex yellow-hover\")",
+      "Bash(cd D:/frontend/mindspa/src && find . -name \"*.css\" -o -name \"*.js\" | xargs grep -l \"#b3ddf5\" 2>/dev/null | while read f; do sed -i 's/#b3ddf5/#b5e8d0/g' \"$f\"; done && echo \"Done hex border green\")"
     ]
   }
 }

@@ -60,7 +60,7 @@ const coursesStyles = {
   },
   comingSoonBanner: {
     textAlign: 'center',
-    background: 'linear-gradient(135deg, #e8f0fe 0%, #fce7f3 100%)',
+    background: 'linear-gradient(135deg, #e6faf2 0%, #fef9e7 100%)',
     borderRadius: 'var(--radius-md)',
     padding: '32px 24px',
     marginBottom: '50px',
@@ -109,8 +109,8 @@ const coursesStyles = {
     letterSpacing: '0.5px',
     padding: '4px 12px',
     borderRadius: '50px',
-    background: '#fef3c7',
-    color: '#92400e',
+    background: '#e6faf2',
+    color: '#00b871',
   },
   title: {
     fontFamily: "'Oswald', sans-serif",

@@ -1,6 +1,6 @@
 /* ── FeatureCards Section ─────────────────────────────── */
 .feature-cards {
-  background: var(--gradient-calm, linear-gradient(180deg, #F5F7F6 0%, #E8F4F7 50%, #F3F0F8 100%));
+  background: var(--gradient-calm, linear-gradient(180deg, #F5F5F5 0%, #e6faf2 50%, #fef9e7 100%));
   padding: 70px 0;
 }
 
@@ -18,14 +18,14 @@
   background: var(--white, #ffffff);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(58,141,159,0.06), 0 1px 4px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 20px rgba(0,208,132,0.06), 0 1px 4px rgba(0, 0, 0, 0.03);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid rgba(58,141,159,0.06);
+  border: 1px solid rgba(0,208,132,0.06);
 }
 
 .feature-cards__card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(58,141,159,0.12), 0 4px 12px rgba(123,166,141,0.06);
+  box-shadow: 0 12px 32px rgba(0,208,132,0.12), 0 4px 12px rgba(252,185,0,0.06);
 }
 
 /* ── Image wrapper ── */

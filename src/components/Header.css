@@ -180,9 +180,9 @@
 .header__cta {
   display: inline-block;
   padding: 10px 24px;
-  background: var(--accent);
+  background: var(--primary);
   color: var(--text-white);
-  border-radius: var(--radius-sm);
+  border-radius: 9999px;
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
@@ -191,9 +191,9 @@
 }
 
 .header__cta:hover {
-  background: var(--accent-hover);
+  background: var(--accent);
   transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(64,180,200,0.3);
+  box-shadow: 0 4px 15px rgba(0,208,132,0.3);
 }
 
 /* Hamburger */

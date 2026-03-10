@@ -1,7 +1,7 @@
 /* ── Get Help With Section ─────────────────────── */
 .get-help {
   padding: 70px 20px;
-  background: var(--gradient-section, linear-gradient(180deg, #ffffff 0%, #F5F7F6 100%));
+  background: var(--gradient-section, linear-gradient(180deg, #ffffff 0%, #F5F5F5 100%));
 }
 
 .get-help__container {
@@ -43,7 +43,7 @@
   height: 8px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--blue), var(--sage));
-  box-shadow: 0 0 8px rgba(58,141,159,0.3);
+  box-shadow: 0 0 8px rgba(0,208,132,0.3);
 }
 
 .get-help__divider .line {
@@ -110,12 +110,12 @@
 }
 
 .get-help__marker--orange {
-  background: var(--warm-gold, #D4A853);
+  background: var(--warm-gold, #fcb900);
   border-radius: 4px;
 }
 
 .get-help__marker--teal {
-  background: var(--sage, #7BA68D);
+  background: var(--sage, #00d084);
   border-radius: 4px;
 }
 

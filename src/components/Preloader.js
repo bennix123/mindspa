@@ -56,9 +56,8 @@ function Preloader({ onComplete }) {
           <svg viewBox="0 0 160 160">
             <defs>
               <linearGradient id="preloaderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#3A8D9F" />
-                <stop offset="50%" stopColor="#7BA68D" />
-                <stop offset="100%" stopColor="#9B8EC4" />
+                <stop offset="0%" stopColor="#00d084" />
+                <stop offset="100%" stopColor="#fcb900" />
               </linearGradient>
             </defs>
             <circle className="preloader__ring-bg" cx="80" cy="80" r="70" />

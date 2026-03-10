@@ -13,7 +13,7 @@
   min-height: 480px;
   border-radius: var(--radius-xl, 32px);
   overflow: hidden;
-  box-shadow: 0 8px 40px rgba(58,141,159,0.08);
+  box-shadow: 0 8px 40px rgba(0,208,132,0.08);
 }
 
 /* ── Left Column: Service list ── */
@@ -112,7 +112,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(135deg, rgba(44,62,80,0.75) 0%, rgba(58,141,159,0.6) 100%);
+  background: linear-gradient(135deg, rgba(50,55,60,0.8) 0%, rgba(0,208,132,0.5) 100%);
 }
 
 /* Content on top */
@@ -142,7 +142,7 @@
 .services-section__book-btn {
   display: inline-block;
   padding: 14px 36px;
-  background: linear-gradient(135deg, var(--pink), var(--lavender));
+  background: var(--primary);
   color: var(--white);
   border-radius: 50px;
   font-size: 15px;
@@ -152,13 +152,13 @@
   text-align: center;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(196,125,142,0.2);
+  box-shadow: 0 4px 15px rgba(50,55,60,0.2);
 }
 
 .services-section__book-btn:hover {
-  background: linear-gradient(135deg, var(--pink-light), #A89BD0);
+  background: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(196,125,142,0.3);
+  box-shadow: 0 6px 20px rgba(0,208,132,0.3);
 }
 
 /* ── Responsive ── */

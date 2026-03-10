@@ -1,7 +1,7 @@
 /* ── Quote Simple Section ──────────────────────── */
 .quote-simple {
   padding: 50px 20px;
-  background: var(--gradient-calm, linear-gradient(180deg, #F5F7F6 0%, #E8F4F7 50%, #F3F0F8 100%));
+  background: var(--gradient-calm, linear-gradient(180deg, #F5F5F5 0%, #e6faf2 50%, #fef9e7 100%));
 }
 
 .quote-simple__container {

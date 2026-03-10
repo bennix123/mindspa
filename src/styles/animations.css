@@ -235,7 +235,7 @@
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 25px rgba(4, 92, 180, 0.2);
+  box-shadow: 0 0 25px rgba(0, 208, 132, 0.2);
 }
 
 /* Button shine sweep */
@@ -430,10 +430,10 @@
 /* Soft ambient glow */
 @keyframes ambientGlow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(58,141,159,0.1);
+    box-shadow: 0 0 20px rgba(0,208,132,0.1);
   }
   50% {
-    box-shadow: 0 0 40px rgba(123,166,141,0.15);
+    box-shadow: 0 0 40px rgba(252,185,0,0.15);
   }
 }
 
@@ -496,17 +496,17 @@
 }
 
 .calm-orb--teal {
-  background: radial-gradient(circle, rgba(58,141,159,0.15), transparent 70%);
+  background: radial-gradient(circle, rgba(0,208,132,0.15), transparent 70%);
   animation: calmFloat 12s ease-in-out infinite;
 }
 
 .calm-orb--sage {
-  background: radial-gradient(circle, rgba(123,166,141,0.12), transparent 70%);
+  background: radial-gradient(circle, rgba(0,208,132,0.12), transparent 70%);
   animation: calmFloat 15s ease-in-out infinite 2s;
 }
 
 .calm-orb--lavender {
-  background: radial-gradient(circle, rgba(155,142,196,0.1), transparent 70%);
+  background: radial-gradient(circle, rgba(252,185,0,0.1), transparent 70%);
   animation: calmFloat 18s ease-in-out infinite 4s;
 }
 

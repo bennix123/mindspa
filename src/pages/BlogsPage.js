@@ -46,7 +46,7 @@ const blogsStyles = {
     width: '100%',
     aspectRatio: '16/10',
     overflow: 'hidden',
-    background: 'linear-gradient(135deg, #e0f2fe, #dbeafe)',
+    background: 'linear-gradient(135deg, #e6faf2, #fef9e7)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

@@ -1,6 +1,6 @@
 /* ── Steps Section ─────────────────────────────────── */
 .steps-section {
-  background: var(--gradient-section, linear-gradient(180deg, #ffffff 0%, #F5F7F6 100%));
+  background: var(--gradient-section, linear-gradient(180deg, #ffffff 0%, #F5F5F5 100%));
   padding: 70px 0;
 }
 
@@ -39,12 +39,12 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid rgba(58,141,159,0.05);
+  border: 1px solid rgba(0,208,132,0.05);
 }
 
 .step-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(58,141,159,0.1);
+  box-shadow: 0 12px 32px rgba(0,208,132,0.1);
 }
 
 /* ── Gradient Accent Bar at Top ── */

@@ -5,13 +5,31 @@ import './BlogPost.css';
 
 const DEFAULT_CONTENT = 'This article is part of our blog on mental health, wellness, and personal development. For more support, explore our services or book an appointment with our team.';
 
-const CATEGORIES = ['Holistic Health', 'Self-Help', 'Technology', 'Gen Z Wellness', 'Hypnotherapy'];
+const CATEGORIES = ['Hypnotherapy', 'Self-Help', 'Technology', 'Gen Z Wellness', 'Holistic Health', 'Mental Health', 'Personal Growth', 'Student Wellness'];
 
 const TAG_LIST = ['Mental Health', 'Wellness', 'Therapy', 'Mindfulness', 'Self-Care', 'Anxiety', 'Healing'];
 
+const FALLBACK_IMAGE = 'https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=600';
+
+function BlogPostLoading() {
+  return (
+    <div className="blog-post-page">
+      <div className="container" style={{ padding: '120px 20px', textAlign: 'center' }}>
+        <div className="bp-loading-spinner" />
+        <p style={{ color: 'var(--text-secondary)', marginTop: '16px' }}>Loading article...</p>
+      </div>
+    </div>
+  );
+}
+
 function BlogPost() {
   const { id } = useParams();
-  const { posts } = useContent();
+  const { posts, postsLoading } = useContent();
+
+  if (postsLoading) {
+    return <BlogPostLoading />;
+  }
+
   const post = posts ? posts.find((p) => p.id === id) : null;
   const relatedPosts = posts ? posts.filter((p) => p.id !== id).slice(0, 3) : [];
 
@@ -30,7 +48,6 @@ function BlogPost() {
   }
 
   const content = post.content || DEFAULT_CONTENT;
-  const paragraphs = content.split(/\n\n+/).filter(Boolean);
 
   return (
     <>
@@ -44,7 +61,7 @@ function BlogPost() {
           <div className="bp-hero-meta">
             <span className="bp-meta-item">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              {post.date} {post.month}
+              {post.date} {post.month} {post.year || ''}
             </span>
             <span className="bp-meta-sep">&bull;</span>
             <span className="bp-meta-item">
@@ -74,15 +91,22 @@ function BlogPost() {
           <article className="bp-article">
             {/* Featured Image */}
             <div className="bp-featured-image">
-              <div className="bp-featured-icon">{post.image}</div>
-              <div className="bp-featured-gradient" />
+              <img
+                src={post.image || FALLBACK_IMAGE}
+                alt={post.title}
+                className="bp-featured-img"
+              />
             </div>
 
             {/* Article Body */}
             <div className="bp-body">
-              {paragraphs.map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
+              {post.isHtml ? (
+                <div dangerouslySetInnerHTML={{ __html: content }} />
+              ) : (
+                content.split(/\n\n+/).filter(Boolean).map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))
+              )}
             </div>
 
             {/* Tags */}
@@ -163,7 +187,13 @@ function BlogPost() {
                   {relatedPosts.map((rp) => (
                     <li key={rp.id} className="bp-recent-item">
                       <Link to={`/blog/${rp.id}`} className="bp-recent-link">
-                        <div className="bp-recent-thumb">{rp.image}</div>
+                        <div className="bp-recent-thumb">
+                          <img
+                            src={rp.image || FALLBACK_IMAGE}
+                            alt={rp.title}
+                            className="bp-recent-thumb-img"
+                          />
+                        </div>
                         <div className="bp-recent-info">
                           <span className="bp-recent-date">{rp.date} {rp.month}</span>
                           <span className="bp-recent-title">{rp.title}</span>

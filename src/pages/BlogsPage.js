@@ -3,14 +3,7 @@ import { Link } from 'react-router-dom';
 import { useContent } from '../context/ContentContext';
 import PageBanner from '../components/PageBanner';
 
-const BLOG_IMAGES = [
-  'https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/3759657/pexels-photo-3759657.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/3560044/pexels-photo-3560044.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/3822583/pexels-photo-3822583.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/6957667/pexels-photo-6957667.jpeg?auto=compress&cs=tinysrgb&w=600',
-];
+const FALLBACK_IMAGE = 'https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=600';
 
 const blogsStyles = {
   section: {
@@ -46,15 +39,13 @@ const blogsStyles = {
     width: '100%',
     aspectRatio: '16/10',
     overflow: 'hidden',
-    background: 'linear-gradient(135deg, #e6faf2, #fef9e7)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    background: '#e8ecef',
   },
   image: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
+    display: 'block',
   },
   dateBadge: {
     position: 'absolute',
@@ -99,10 +90,22 @@ const blogsStyles = {
     color: 'var(--dark-navy)',
     lineHeight: 1.35,
     margin: 0,
+    marginBottom: '8px',
     display: '-webkit-box',
     WebkitLineClamp: 2,
     WebkitBoxOrient: 'vertical',
     overflow: 'hidden',
+  },
+  excerpt: {
+    fontSize: '13px',
+    color: 'var(--body-text)',
+    lineHeight: 1.5,
+    margin: 0,
+    display: '-webkit-box',
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: 'vertical',
+    overflow: 'hidden',
+    opacity: 0.75,
   },
   empty: {
     textAlign: 'center',
@@ -112,8 +115,21 @@ const blogsStyles = {
   },
 };
 
+function SkeletonCard() {
+  return (
+    <div className="blog-skeleton-card">
+      <div className="blog-skeleton-image" />
+      <div className="blog-skeleton-body">
+        <div className="blog-skeleton-line short" />
+        <div className="blog-skeleton-line" />
+        <div className="blog-skeleton-line medium" />
+      </div>
+    </div>
+  );
+}
+
 function BlogsPage() {
-  const { posts } = useContent();
+  const { posts, postsLoading } = useContent();
 
   return (
     <>
@@ -134,13 +150,19 @@ function BlogsPage() {
             development.
           </p>
 
-          {!posts || posts.length === 0 ? (
+          {postsLoading ? (
+            <div style={blogsStyles.grid} className="blogs-grid">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <SkeletonCard key={i} />
+              ))}
+            </div>
+          ) : !posts || posts.length === 0 ? (
             <div style={blogsStyles.empty}>
               <p>No blog posts available at the moment. Check back soon!</p>
             </div>
           ) : (
             <div style={blogsStyles.grid} className="blogs-grid">
-              {posts.map((post, index) => (
+              {posts.map((post) => (
                 <Link
                   key={post.id}
                   to={`/blog/${post.id}`}
@@ -149,9 +171,10 @@ function BlogsPage() {
                 >
                   <div style={blogsStyles.imageWrap}>
                     <img
-                      src={BLOG_IMAGES[index % BLOG_IMAGES.length]}
+                      src={post.image || FALLBACK_IMAGE}
                       alt={post.title}
                       style={blogsStyles.image}
+                      loading="lazy"
                     />
                     <div style={blogsStyles.dateBadge}>
                       <span style={blogsStyles.dateNum}>{post.date}</span>
@@ -161,6 +184,9 @@ function BlogsPage() {
                   <div style={blogsStyles.cardBody}>
                     <span style={blogsStyles.category}>{post.category}</span>
                     <h3 style={blogsStyles.title}>{post.title}</h3>
+                    {post.excerpt && (
+                      <p style={blogsStyles.excerpt}>{post.excerpt}</p>
+                    )}
                   </div>
                 </Link>
               ))}
@@ -174,6 +200,42 @@ function BlogsPage() {
           transform: translateY(-4px);
           box-shadow: 0 8px 30px rgba(0,0,0,0.1);
         }
+
+        /* Skeleton loading */
+        .blog-skeleton-card {
+          border-radius: var(--radius-md, 12px);
+          overflow: hidden;
+          border: 1px solid var(--border-light, #e8ecef);
+          background: var(--light-grey, #f8f9fa);
+        }
+        .blog-skeleton-image {
+          width: 100%;
+          aspect-ratio: 16/10;
+          background: linear-gradient(90deg, #e8ecef 25%, #f3f4f6 50%, #e8ecef 75%);
+          background-size: 200% 100%;
+          animation: skeleton-shimmer 1.5s ease-in-out infinite;
+        }
+        .blog-skeleton-body {
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .blog-skeleton-line {
+          height: 14px;
+          border-radius: 6px;
+          background: linear-gradient(90deg, #e8ecef 25%, #f3f4f6 50%, #e8ecef 75%);
+          background-size: 200% 100%;
+          animation: skeleton-shimmer 1.5s ease-in-out infinite;
+          width: 100%;
+        }
+        .blog-skeleton-line.short { width: 40%; height: 10px; }
+        .blog-skeleton-line.medium { width: 70%; }
+        @keyframes skeleton-shimmer {
+          0% { background-position: 200% 0; }
+          100% { background-position: -200% 0; }
+        }
+
         @media (max-width: 1024px) {
           .blogs-grid {
             grid-template-columns: repeat(2, 1fr) !important;

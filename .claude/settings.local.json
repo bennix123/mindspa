@@ -79,7 +79,18 @@
       "Bash(ls -la /d/frontend/mindspa/src/ | grep -E \"\\\\.\\(css|js\\)$\")",
       "Bash(cd D:/frontend/mindspa && npm run build 2>&1 | tail -20)",
       "Bash(cd D:/frontend/mindspa && npm run build 2>&1 | tail -25)",
-      "Bash(cd D:/frontend/mindspa && npm run build 2>&1 | tail -10)"
+      "Bash(cd D:/frontend/mindspa && npm run build 2>&1 | tail -10)",
+      "Bash(ls -la /d/frontend/mindspa/src/pages/ | grep -E \"\\\\.js$\")",
+      "Bash(npm install:*)",
+      "Bash(tasklist | grep -i node)",
+      "Bash(/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command \"Get-Process node -ErrorAction SilentlyContinue | Select-Object Id, ProcessName\")",
+      "Bash(npm start:*)",
+      "WebFetch(domain:www.chi-ggn.com)",
+      "Bash(/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command \"Stop-Process -Id \\(Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue\\).OwningProcess -Force -ErrorAction SilentlyContinue\")",
+      "Bash(ls D:/frontend/mindspa/kinforce*.png 2>/dev/null; ls D:/frontend/mindspa/kinforce*.jpg 2>/dev/null; ls D:/frontend/mindspa/kinforce* 2>/dev/null)",
+      "Read(//c/Users/Hp/Documents/Kinforce Copy//**)",
+      "Read(//c/Users/Hp/Documents/Kinforce Copy/**)",
+      "Bash(dir \"C:\\\\Users\\\\Hp\\\\Documents\\\\Kinforce Copy\")"
     ]
   }
 }

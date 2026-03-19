@@ -1,7 +1,9 @@
 /* === ABOUT SECTION === */
 .about-section {
+  position: relative;
   padding: 100px 0;
   background: var(--bg-light);
+  overflow: hidden;
 }
 
 .about-section__grid {
@@ -63,7 +65,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--accent);
+  background: var(--accent-warm);
   color: var(--text-white);
   width: 120px;
   height: 120px;
@@ -72,7 +74,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 30px rgba(0,208,132,0.4);
+  box-shadow: 0 8px 30px rgba(252,185,0,0.4);
   z-index: 2;
 }
 
@@ -143,12 +145,13 @@
   transform: translateY(-3px);
 }
 
-.about-section__specialty-num {
-  font-family: 'Oswald', sans-serif;
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--accent);
-  min-width: 40px;
+.about-section__specialty-dot {
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 4px;
 }
 
 .about-section__specialty h4 {
@@ -164,12 +167,23 @@
   color: var(--text-light);
 }
 
+.about-section__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-light);
+}
+
 .about-section__founder {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border-light);
+}
+
+.about-section__signature {
+  height: 40px;
+  width: auto;
 }
 
 .about-section__founder-name {
@@ -182,6 +196,10 @@
 .about-section__founder-role {
   font-size: 13px;
   color: var(--text-light);
+}
+
+.about-section__btn {
+  flex-shrink: 0;
 }
 
 /* Responsive */

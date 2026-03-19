@@ -1,19 +1,10 @@
-/* === SERVICE CARDS === */
+/* === SERVICE CARDS (Overlapping Hero) === */
 .service-cards {
-  padding: 80px 0;
-  background: var(--bg-white);
-}
-
-.service-cards__header {
-  margin-bottom: 50px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.service-cards__header.visible {
-  opacity: 1;
-  transform: translateY(0);
+  position: relative;
+  padding: 0 0 80px;
+  background: transparent;
+  margin-top: -80px;
+  z-index: 10;
 }
 
 .service-cards__grid {
@@ -31,6 +22,7 @@
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-md);
 }
 
 .service-card::before {
@@ -47,7 +39,7 @@
 
 .service-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 6px 6px 9px rgba(0,0,0,0.2);
   border-color: transparent;
 }
 
@@ -89,21 +81,22 @@
   margin-bottom: 20px;
 }
 
-.service-card__link {
+.service-card__arrow {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: gap 0.3s ease, color 0.3s ease;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--accent-warm);
+  color: var(--text-white);
+  transition: all 0.3s ease;
 }
 
-.service-card__link:hover {
-  gap: 10px;
-  color: var(--accent-hover);
+.service-card__arrow:hover {
+  background: var(--accent-warm-hover);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(252,185,0,0.4);
 }
 
 /* Responsive */
@@ -115,7 +108,8 @@
 
 @media (max-width: 600px) {
   .service-cards {
-    padding: 60px 0;
+    padding: 0 0 60px;
+    margin-top: -60px;
   }
   .service-cards__grid {
     grid-template-columns: 1fr;

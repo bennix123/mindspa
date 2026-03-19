@@ -1,5 +1,6 @@
 import React from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { TriangleDots, FloatingShape } from './DecorativePatterns';
 import './WhyChooseUs.css';
 
 const leftServices = [
@@ -24,10 +25,22 @@ const WhyChooseUs = () => {
 
   return (
     <section className="why-choose">
+      <TriangleDots style={{ top: '60px', right: '40px' }} />
+      <FloatingShape shape="circle" style={{ top: '20%', left: '-80px' }} />
+      <FloatingShape shape="warm" style={{ bottom: '10%', right: '-60px' }} />
       <div className="container">
         <div className="why-choose__grid">
-          <div ref={leftRef} className={`why-choose__content ${leftVis ? 'visible' : ''}`}>
-            <p className="section-label" style={{ textAlign: 'left' }}>Why Choose Us</p>
+          <div ref={leftRef} className={`why-choose__image ${leftVis ? 'visible' : ''}`}>
+            <img src="/client-pic/4.jpeg" alt="Why choose Mind Spa" />
+            <div className="why-choose__play-btn" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <polygon points="5,3 19,12 5,21" />
+              </svg>
+            </div>
+          </div>
+
+          <div ref={rightRef} className={`why-choose__content ${rightVis ? 'visible' : ''}`}>
+            <p className="section-label" style={{ textAlign: 'left' }}>Why We Are</p>
             <h2 className="why-choose__title">Why Choose Us</h2>
             <p className="why-choose__desc">
               We provide comprehensive mental health care with a team of certified professionals
@@ -60,12 +73,7 @@ const WhyChooseUs = () => {
               </ul>
             </div>
 
-            <a href="/services" className="btn-primary">Read More</a>
-          </div>
-
-          <div ref={rightRef} className={`why-choose__image ${rightVis ? 'visible' : ''}`}>
-            <img src="/client-pic/4.jpeg" alt="Why choose Mind Spa" />
-            <div className="why-choose__shape" />
+            <a href="/services" className="btn-warm why-choose__btn">Read More</a>
           </div>
         </div>
       </div>

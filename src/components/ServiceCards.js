@@ -1,5 +1,5 @@
 import React from 'react';
-import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
+import { useStaggerReveal } from '../hooks/useScrollReveal';
 import './ServiceCards.css';
 
 const services = [
@@ -39,31 +39,19 @@ const services = [
 ];
 
 const ServiceCards = () => {
-  const [titleRef, titleVis] = useScrollReveal();
   const gridRef = useStaggerReveal({ staggerDelay: 200, childSelector: '.service-card' });
 
   return (
     <section className="service-cards">
       <div className="container">
-        <div ref={titleRef} className={`service-cards__header ${titleVis ? 'visible' : ''}`}>
-          <p className="section-label">What We Offer</p>
-          <h2 className="section-title">Our Core Services</h2>
-          <div className="section-divider">
-            <span className="line"></span>
-            <span className="dot"></span>
-            <span className="line"></span>
-          </div>
-        </div>
-
         <div className="service-cards__grid" ref={gridRef}>
           {services.map((service, index) => (
             <div key={index} className="service-card stagger-item">
               <div className="service-card__icon">{service.icon}</div>
               <h3 className="service-card__title">{service.title}</h3>
               <p className="service-card__desc">{service.description}</p>
-              <a href="/services" className="service-card__link">
-                Learn More
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <a href="/services" className="service-card__arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </a>

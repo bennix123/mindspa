@@ -1,0 +1,90 @@
+/* === CUSTOM CURSOR === */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+
+.cursor-dot.visible,
+.cursor-ring.visible {
+  opacity: 1;
+}
+
+/* Inner dot */
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+  background: var(--accent);
+  box-shadow: 0 0 6px rgba(0, 208, 132, 0.6);
+}
+
+.cursor-dot.clicking {
+  transform: scale(0.5);
+}
+
+/* Outer ring */
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+  margin-top: -18px;
+  border: 1.5px solid rgba(0, 208, 132, 0.4);
+  background: transparent;
+  transition: width 0.3s ease, height 0.3s ease,
+              margin 0.3s ease, opacity 0.3s ease,
+              background 0.3s ease, border-color 0.3s ease;
+}
+
+.cursor-ring.hovering {
+  width: 56px;
+  height: 56px;
+  margin-left: -28px;
+  margin-top: -28px;
+  border-color: rgba(0, 208, 132, 0.15);
+  background: rgba(0, 208, 132, 0.06);
+}
+
+.cursor-ring.clicking {
+  width: 30px;
+  height: 30px;
+  margin-left: -15px;
+  margin-top: -15px;
+  border-color: rgba(0, 208, 132, 0.6);
+}
+
+/* Hide default cursor when custom cursor is active */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none !important;
+  }
+
+  a, button, input, textarea, select,
+  [role="button"], .btn-primary, .btn-warm,
+  .btn-outline, .btn-pink {
+    cursor: none !important;
+  }
+}
+
+/* Hide custom cursor on touch/mobile */
+@media (max-width: 768px), (hover: none) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}

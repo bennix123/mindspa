@@ -1,0 +1,64 @@
+/* === DECORATIVE PATTERNS (Psyko-style) === */
+.deco-pattern {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  color: var(--accent);
+}
+
+/* Slow floating animation */
+.deco-circle-pattern {
+  animation: decoFloat 8s ease-in-out infinite;
+}
+
+.deco-dot-grid {
+  animation: decoFloat 10s ease-in-out infinite reverse;
+}
+
+.deco-triangle {
+  animation: decoFloat 12s ease-in-out infinite;
+}
+
+.deco-shape-lines {
+  animation: decoSpin 30s linear infinite;
+}
+
+/* Floating blurred shape */
+.deco-floating {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.08;
+}
+
+.deco-floating--circle {
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+}
+
+.deco-floating--warm {
+  background: radial-gradient(circle, var(--accent-warm) 0%, transparent 70%);
+}
+
+@keyframes decoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes decoSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Hide on small screens for cleaner mobile */
+@media (max-width: 768px) {
+  .deco-pattern {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deco-pattern {
+    animation: none !important;
+  }
+}

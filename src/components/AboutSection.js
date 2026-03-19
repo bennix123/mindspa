@@ -4,16 +4,16 @@ import { useCountUp } from '../hooks/useScrollReveal';
 import './AboutSection.css';
 
 const specialties = [
-  { icon: '01', title: 'Qualified Therapists', desc: 'Experts you can trust' },
-  { icon: '02', title: 'Couples Counseling', desc: 'Strengthen relationships' },
-  { icon: '03', title: 'Individual Counseling', desc: 'Personalized care' },
-  { icon: '04', title: 'Referring Therapists', desc: 'Connected network' },
+  { title: 'Qualified Therapies', desc: '45 years of experience' },
+  { title: 'Individual Counseling', desc: 'Mental help for families' },
+  { title: 'Couples Counseling', desc: '45 years of experience' },
+  { title: 'Referring Therapists', desc: 'Experts you can trust' },
 ];
 
 const AboutSection = () => {
   const [leftRef, leftVis] = useScrollReveal();
   const [rightRef, rightVis] = useScrollReveal();
-  const [yearsRef, yearsCount] = useCountUp(10, 2000);
+  const [yearsRef, yearsCount] = useCountUp(45, 2000);
 
   return (
     <section className="about-section">
@@ -46,7 +46,7 @@ const AboutSection = () => {
             <div className="about-section__specialties">
               {specialties.map((item, i) => (
                 <div key={i} className="about-section__specialty">
-                  <span className="about-section__specialty-num">{item.icon}</span>
+                  <span className="about-section__specialty-dot"></span>
                   <div>
                     <h4>{item.title}</h4>
                     <p>{item.desc}</p>
@@ -55,11 +55,15 @@ const AboutSection = () => {
               ))}
             </div>
 
-            <div className="about-section__founder">
-              <div className="about-section__founder-info">
-                <p className="about-section__founder-name">Dr. Mind Spa</p>
-                <p className="about-section__founder-role">Founder & Chief Therapist</p>
+            <div className="about-section__bottom">
+              <div className="about-section__founder">
+                <img src="/client-pic/signature.png" alt="Signature" className="about-section__signature" onError={(e) => { e.target.style.display = 'none'; }} />
+                <div className="about-section__founder-info">
+                  <p className="about-section__founder-name">Saanya Singh</p>
+                  <p className="about-section__founder-role">Founder</p>
+                </div>
               </div>
+              <a href="/about" className="btn-primary about-section__btn">Learn More</a>
             </div>
           </div>
         </div>

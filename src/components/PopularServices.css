@@ -1,10 +1,15 @@
-/* === POPULAR SERVICES === */
+/* === POPULAR SERVICES (Psyko - left header + icon cards) === */
 .popular-services {
+  position: relative;
   padding: 100px 0;
   background: var(--bg-light);
+  overflow: hidden;
 }
 
 .popular-services__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
   margin-bottom: 50px;
   opacity: 0;
   transform: translateY(30px);
@@ -14,6 +19,18 @@
 .popular-services__header.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.popular-services__header-left {
+  max-width: 500px;
+}
+
+.popular-services__header-left .section-title {
+  margin-bottom: 0;
+}
+
+.popular-services__explore {
+  flex-shrink: 0;
 }
 
 .popular-services__grid {
@@ -32,7 +49,7 @@
 
 .popular-service:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 6px 6px 9px rgba(0,0,0,0.2);
 }
 
 .popular-service__image {
@@ -52,45 +69,32 @@
   transform: scale(1.08);
 }
 
-.popular-service__overlay {
+/* Circular icon overlapping bottom of image */
+.popular-service__icon {
   position: absolute;
-  inset: 0;
-  background: rgba(30, 34, 40, 0.6);
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--text-white);
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0,208,132,0.3);
+  z-index: 2;
+  transition: transform 0.3s ease;
 }
 
-.popular-service:hover .popular-service__overlay {
-  opacity: 1;
-}
-
-.popular-service__link {
-  display: inline-block;
-  padding: 10px 24px;
-  background: var(--accent);
-  color: var(--text-white);
-  border-radius: var(--radius-sm);
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transform: translateY(20px);
-  transition: transform 0.4s ease, background 0.3s ease;
-}
-
-.popular-service:hover .popular-service__link {
-  transform: translateY(0);
-}
-
-.popular-service__link:hover {
-  background: var(--accent-hover);
+.popular-service:hover .popular-service__icon {
+  transform: translateX(-50%) scale(1.1);
 }
 
 .popular-service__content {
-  padding: 24px;
+  padding: 36px 24px 24px;
+  text-align: center;
 }
 
 .popular-service__content h3 {
@@ -98,17 +102,16 @@
   font-size: 22px;
   font-weight: 500;
   color: var(--text-heading);
-  margin-bottom: 10px;
-}
-
-.popular-service__content p {
-  font-size: 14px;
-  color: var(--text-body);
-  line-height: 1.7;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
+  .popular-services__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
   .popular-services__grid {
     grid-template-columns: repeat(2, 1fr);
   }

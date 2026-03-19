@@ -32,9 +32,9 @@
   z-index: 1;
   background: linear-gradient(
     135deg,
-    rgba(50, 55, 60, 0.88) 0%,
-    rgba(30, 34, 40, 0.75) 50%,
-    rgba(0, 208, 132, 0.35) 100%
+    rgba(50, 55, 60, 0.55) 0%,
+    rgba(30, 34, 40, 0.35) 50%,
+    rgba(0, 208, 132, 0.15) 100%
   );
 }
 
@@ -64,7 +64,7 @@
   position: relative;
   z-index: 3;
   max-width: 650px;
-  padding: 40px 24px 40px 80px;
+  padding: 40px 24px 120px 80px;
 }
 
 .hero__label {

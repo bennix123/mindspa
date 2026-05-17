@@ -43,7 +43,7 @@ const Blog = () => {
       <div className="container">
         <div ref={titleRef} className={`blog-section__header ${titleVis ? 'visible' : ''}`}>
           <p className="section-label">Recent Blog</p>
-          <h2 className="section-title">Get Latest Tips & Tricks</h2>
+          <h2 className="section-title">Blogs</h2>
           <div className="section-divider">
             <span className="line"></span>
             <span className="dot"></span>

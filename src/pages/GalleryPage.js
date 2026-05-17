@@ -2,16 +2,20 @@ import React from 'react';
 import PageBanner from '../components/PageBanner';
 
 const GALLERY_IMAGES = [
-  { src: '/client-pic/1.jpeg', alt: 'MindSpa Session 1' },
-  { src: '/client-pic/2.jpeg', alt: 'MindSpa Session 2' },
-  { src: '/client-pic/3.jpeg', alt: 'MindSpa Session 3' },
-  { src: '/client-pic/4.jpeg', alt: 'MindSpa Session 4' },
-  { src: '/client-pic/5.jpeg', alt: 'MindSpa Session 5' },
-  { src: '/client-pic/6.jpeg', alt: 'MindSpa Session 6' },
-  { src: '/client-pic/7.jpeg', alt: 'MindSpa Session 7' },
-  { src: '/client-pic/8.jpeg', alt: 'MindSpa Session 8' },
-  { src: '/client-pic/9.jpeg', alt: 'MindSpa Session 9' },
-  { src: '/client-pic/10.jpeg', alt: 'MindSpa Session 10' },
+  ...Array.from({ length: 27 }, (_, i) => {
+    const num = String(i + 1).padStart(2, '0');
+    return {
+      src: `/client-pic/gallery-new/event-${num}.jpeg`,
+      alt: `MindSpa Event ${i + 1}`,
+    };
+  }),
+  ...Array.from({ length: 88 }, (_, i) => {
+    const num = String(i + 1).padStart(3, '0');
+    return {
+      src: `/client-pic/gallery-photos/gallery-${num}.jpeg`,
+      alt: `MindSpa Gallery ${i + 28}`,
+    };
+  }),
 ];
 
 const galleryStyles = {

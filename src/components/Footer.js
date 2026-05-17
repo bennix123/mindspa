@@ -11,14 +11,11 @@ const Footer = () => {
             {/* Column 1: About */}
             <div className="footer__col footer__col--about">
               <div className="footer__logo">
-                <span className="footer__logo-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-                    <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-                    <circle cx="9" cy="10" r="1" fill="currentColor"/>
-                    <circle cx="15" cy="10" r="1" fill="currentColor"/>
-                  </svg>
-                </span>
+                <img
+                  src="/client-pic/logo.png"
+                  alt="Mind Spa"
+                  className="footer__logo-img"
+                />
                 <span className="footer__logo-text">Mind Spa</span>
               </div>
               <p className="footer__about-text">

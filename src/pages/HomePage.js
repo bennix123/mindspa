@@ -2,11 +2,13 @@ import React from 'react';
 import Hero from '../components/Hero';
 import ServiceCards from '../components/ServiceCards';
 import AboutSection from '../components/AboutSection';
+import WatchVideoSection from '../components/WatchVideoSection';
 import StatsCounter from '../components/StatsCounter';
-import WhyChooseUs from '../components/WhyChooseUs';
+
 import PopularServices from '../components/PopularServices';
+import TrainingPrograms from '../components/TrainingPrograms';
 import Team from '../components/Team';
-import Testimonials from '../components/Testimonials';
+import AwardsCertificates from '../components/AwardsCertificates';
 import Blog from '../components/Blog';
 import AppointmentForm from '../components/AppointmentForm';
 
@@ -16,11 +18,13 @@ function HomePage() {
       <Hero />
       <ServiceCards />
       <AboutSection />
+      <WatchVideoSection />
       <StatsCounter />
-      <WhyChooseUs />
+
       <PopularServices />
+      <TrainingPrograms />
       <Team />
-      <Testimonials />
+      <AwardsCertificates />
       <Blog />
       <AppointmentForm />
     </>

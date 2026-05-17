@@ -29,7 +29,6 @@ const AppointmentForm = () => {
     <section className="appointment">
       <div className="container">
         <div ref={leftRef} className={`appointment__header ${leftVis ? 'visible' : ''}`}>
-          <p className="section-label">Who We Are</p>
           <h2 className="section-title">Book An Appointment Now</h2>
           <div className="section-divider">
             <span className="line"></span>
@@ -40,7 +39,7 @@ const AppointmentForm = () => {
 
         <div className="appointment__grid">
           <div className="appointment__image-wrap">
-            <img src="/client-pic/2.jpeg" alt="Customer service" className="appointment__image" />
+            <img src="/client-pic/book-appointment.jpeg" alt="Book an appointment" className="appointment__image" />
           </div>
 
           <div ref={rightRef} className={`appointment__form-wrap ${rightVis ? 'visible' : ''}`}>

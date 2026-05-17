@@ -1,90 +1,212 @@
 /* === PAGE BANNER COMPONENT === */
 .page-banner {
-  background: linear-gradient(135deg, #e6faf2 0%, #fef9e7 50%, #e6faf2 100%);
-  padding: 60px 0 50px;
-  text-align: center;
   position: relative;
+  padding: 100px 0 70px;
+  text-align: center;
   overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
 }
 
-.page-banner::before {
-  content: '';
+.page-banner__bg {
   position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: rgba(0, 208, 132, 0.06);
+  inset: 0;
+  z-index: 0;
 }
 
-.page-banner::after {
-  content: '';
+.page-banner__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.page-banner__overlay {
   position: absolute;
-  bottom: -40px;
-  left: -40px;
-  width: 160px;
-  height: 160px;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 40, 30, 0.85) 0%,
+    rgba(0, 80, 50, 0.75) 50%,
+    rgba(0, 40, 30, 0.85) 100%
+  );
+}
+
+/* Floating particles */
+.page-banner__particles {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.page-banner__particles span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: rgba(252, 185, 0, 0.05);
+  background: rgba(255, 255, 255, 0.15);
+  animation: bannerFloat 6s ease-in-out infinite;
+}
+
+.page-banner__particles span:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+  width: 8px;
+  height: 8px;
+}
+
+.page-banner__particles span:nth-child(2) {
+  top: 60%;
+  left: 80%;
+  animation-delay: 1.5s;
+}
+
+.page-banner__particles span:nth-child(3) {
+  top: 30%;
+  right: 15%;
+  animation-delay: 3s;
+  width: 10px;
+  height: 10px;
+}
+
+.page-banner__particles span:nth-child(4) {
+  bottom: 25%;
+  left: 25%;
+  animation-delay: 2s;
+}
+
+.page-banner__particles span:nth-child(5) {
+  top: 50%;
+  right: 30%;
+  animation-delay: 4s;
+  width: 5px;
+  height: 5px;
+}
+
+@keyframes bannerFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.5);
+    opacity: 0.7;
+  }
 }
 
 .page-banner-inner {
   position: relative;
-  z-index: 1;
+  z-index: 3;
+  width: 100%;
 }
 
-.page-banner-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 42px;
-  font-weight: 500;
-  color: var(--dark-navy);
-  margin-bottom: 12px;
-  letter-spacing: 0.5px;
-}
-
+/* Breadcrumb */
 .page-banner-breadcrumb {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   font-size: 14px;
-  color: var(--body-text);
+  margin-bottom: 16px;
 }
 
 .page-banner-breadcrumb a {
-  color: var(--blue);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   transition: color 0.2s ease;
   font-weight: 500;
 }
 
 .page-banner-breadcrumb a:hover {
-  color: var(--blue-hover);
-  text-decoration: underline;
+  color: #fff;
 }
 
 .page-banner-breadcrumb .breadcrumb-separator {
-  color: #94a3b8;
-  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
 }
 
 .page-banner-breadcrumb .breadcrumb-current {
-  color: var(--dark-navy);
+  color: var(--accent-warm);
   font-weight: 600;
+}
+
+/* Title */
+.page-banner-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Divider */
+.page-banner-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.page-banner-divider .line {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-warm), transparent);
+}
+
+.page-banner-divider .diamond {
+  width: 10px;
+  height: 10px;
+  background: var(--accent-warm);
+  transform: rotate(45deg);
+}
+
+/* Subtitle */
+.page-banner-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 550px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-weight: 300;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .page-banner {
-    padding: 45px 0 35px;
+    padding: 80px 0 50px;
+    min-height: 220px;
   }
 
   .page-banner-title {
-    font-size: 32px;
+    font-size: 34px;
+  }
+
+  .page-banner-subtitle {
+    font-size: 14px;
+    max-width: 90%;
   }
 
   .page-banner-breadcrumb {
     font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-banner {
+    padding: 70px 0 40px;
+    min-height: 200px;
+  }
+
+  .page-banner-title {
+    font-size: 28px;
   }
 }

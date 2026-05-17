@@ -1,11 +1,29 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import api from '../utils/api';
 
 const STORAGE_KEYS = {
   reels: 'mindspa_reels',
   podcasts: 'mindspa_podcasts',
 };
 
-const WP_API_URL = 'https://mindspaindia.in/wp-json/wp/v2/posts?per_page=100&_embed';
+// Transform a backend blog row into the shape the UI expects
+const transformBackendBlog = (blog) => {
+  const d = new Date(Number(blog.published_at) || Date.now());
+  return {
+    id: String(blog.id),
+    date: String(d.getDate()).padStart(2, '0'),
+    month: MONTHS[d.getMonth()],
+    year: String(d.getFullYear()),
+    category: blog.category || 'Mental Health',
+    title: blog.title,
+    image: blog.image,
+    content: blog.content || '',
+    excerpt: blog.excerpt || '',
+    author: blog.author,
+    isHtml: false,
+    externalUrl: '',
+  };
+};
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -162,23 +180,19 @@ export const ContentProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
   const [postsLoading, setPostsLoading] = useState(true);
 
-  // Fetch posts from WordPress REST API
+  // Fetch blogs from the MindSpa backend (MySQL)
   useEffect(() => {
     let cancelled = false;
 
-    fetch(WP_API_URL)
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+    api.getBlogs()
       .then((data) => {
         if (!cancelled) {
-          setPosts(data.map(transformWPPost));
+          setPosts(data.map(transformBackendBlog));
           setPostsLoading(false);
         }
       })
       .catch((err) => {
-        console.warn('WordPress API unavailable, using fallback posts:', err);
+        console.warn('Backend blogs API unavailable, using fallback posts:', err);
         if (!cancelled) {
           setPosts(defaultPosts);
           setPostsLoading(false);
@@ -187,6 +201,12 @@ export const ContentProvider = ({ children }) => {
 
     return () => { cancelled = true; };
   }, []);
+
+  // Expose a refresh function so admin actions can re-pull the list
+  const refreshPosts = () =>
+    api.getBlogs()
+      .then((data) => setPosts(data.map(transformBackendBlog)))
+      .catch(() => {});
 
   useEffect(() => { saveToStorage(STORAGE_KEYS.reels, reels); }, [reels]);
   useEffect(() => { saveToStorage(STORAGE_KEYS.podcasts, podcasts); }, [podcasts]);
@@ -229,6 +249,7 @@ export const ContentProvider = ({ children }) => {
     addReel, updateReel, deleteReel,
     addPodcast, updatePodcast, deletePodcast,
     addPost, updatePost, deletePost,
+    refreshPosts,
   };
 
   return <ContentContext.Provider value={value}>{children}</ContentContext.Provider>;

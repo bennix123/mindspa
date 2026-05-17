@@ -10,8 +10,8 @@ const services = [
         <circle cx="32" cy="26" r="6" stroke="currentColor" strokeWidth="2.5" fill="none"/>
       </svg>
     ),
-    title: 'Psycho Therapy',
-    description: 'Expert psychological therapy sessions tailored to your unique needs, helping you navigate challenges and achieve lasting mental wellness.',
+    title: 'Psycho Therapy for emotional healing',
+    description: 'Compassionate psychotherapy sessions to help you process stress, trauma, grief, and emotional pain while building healthier coping patterns and inner resilience.',
   },
   {
     icon: (
@@ -21,8 +21,8 @@ const services = [
         <circle cx="32" cy="32" r="4" fill="currentColor"/>
       </svg>
     ),
-    title: 'Couples Therapy',
-    description: 'Strengthen your relationship through guided counseling that improves communication, builds trust, and deepens emotional connection.',
+    title: 'Hypnotherapy for Subconscious Transformation',
+    description: 'Target limiting beliefs and deep-rooted behavioral patterns through guided hypnotherapy to create positive mindset shifts and lasting personal transformation.',
   },
   {
     icon: (
@@ -33,8 +33,19 @@ const services = [
         <path d="M24 20l-4 16M40 20l4 16" stroke="currentColor" strokeWidth="2" fill="none"/>
       </svg>
     ),
-    title: 'Group Therapy',
-    description: 'Connect with others in a supportive group setting, share experiences, and develop coping strategies together under expert guidance.',
+    title: 'Coaching for Success, Happiness, and Life Mastery',
+    description: 'Results-focused coaching to align your goals, habits, and mindset so you can improve clarity, confidence, performance, and fulfillment in everyday life.',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 64 64" fill="none" width="50" height="50">
+        <rect x="14" y="12" width="36" height="40" rx="4" stroke="currentColor" strokeWidth="2.5" fill="none"/>
+        <path d="M22 22h20M22 30h20M22 38h14" stroke="currentColor" strokeWidth="2.5" fill="none"/>
+        <path d="M40 46l4 4 8-8" stroke="currentColor" strokeWidth="2.5" fill="none"/>
+      </svg>
+    ),
+    title: 'Hypnotherapy Training Programs(CHI USA Certified)',
+    description: 'Professional certification-oriented training programs designed for aspiring practitioners to learn clinical hypnotherapy methods with CHI USA aligned standards.',
   },
 ];
 

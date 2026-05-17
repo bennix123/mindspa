@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import PageBanner from '../components/PageBanner';
+import Team from '../components/Team';
+
+const SPACE_IMAGES = Array.from({ length: 15 }, (_, i) => {
+  const num = String(i + 1).padStart(2, '0');
+  return {
+    src: `/client-pic/our-space/space-${num}.jpg`,
+    alt: `MindSpa space photo ${i + 1}`,
+  };
+});
 
 const aboutStyles = {
   section: {
@@ -80,6 +90,24 @@ const aboutStyles = {
 };
 
 function AboutPage() {
+  const [lightbox, setLightbox] = useState(null);
+
+  useEffect(() => {
+    if (lightbox === null) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e) => {
+      if (e.key === 'Escape') setLightbox(null);
+      if (e.key === 'ArrowRight') setLightbox((i) => (i + 1) % SPACE_IMAGES.length);
+      if (e.key === 'ArrowLeft') setLightbox((i) => (i - 1 + SPACE_IMAGES.length) % SPACE_IMAGES.length);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = original;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [lightbox]);
+
   return (
     <>
       <PageBanner title="About Us" />
@@ -154,6 +182,193 @@ function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Our Team — same component used on homepage; <Team /> already has id="team" */}
+      <Team />
+
+      {/* Our Space — anchor for /about#space header link */}
+      <section id="space" className="our-space-section">
+        <div className="container">
+          <p className="section-label" style={{ textAlign: 'center' }}>The Studio</p>
+          <h2 className="our-space__title">Our Space</h2>
+          <div className="section-divider">
+            <span className="line"></span>
+            <span className="dot"></span>
+            <span className="dot"></span>
+            <span className="dot"></span>
+            <span className="line"></span>
+          </div>
+          <p className="our-space__subtitle">
+            A calming, confidential, and warmly designed space — the home of every
+            MindSpa session, workshop, and training program.
+          </p>
+
+          <div className="our-space__grid">
+            {SPACE_IMAGES.map((img, i) => (
+              <button
+                key={i}
+                type="button"
+                className="our-space__tile"
+                onClick={() => setLightbox(i)}
+                aria-label={`View ${img.alt}`}
+              >
+                <img src={img.src} alt={img.alt} loading="lazy" />
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {lightbox !== null && ReactDOM.createPortal(
+        <div className="our-space-lightbox" onClick={(e) => { if (e.target === e.currentTarget) setLightbox(null); }}>
+          <button className="our-space-lightbox__close" onClick={() => setLightbox(null)} aria-label="Close">✕</button>
+          <button
+            className="our-space-lightbox__nav our-space-lightbox__nav--prev"
+            onClick={() => setLightbox((i) => (i - 1 + SPACE_IMAGES.length) % SPACE_IMAGES.length)}
+            aria-label="Previous"
+          >‹</button>
+          <img
+            src={SPACE_IMAGES[lightbox].src}
+            alt={SPACE_IMAGES[lightbox].alt}
+            className="our-space-lightbox__img"
+          />
+          <button
+            className="our-space-lightbox__nav our-space-lightbox__nav--next"
+            onClick={() => setLightbox((i) => (i + 1) % SPACE_IMAGES.length)}
+            aria-label="Next"
+          >›</button>
+          <div className="our-space-lightbox__counter">{lightbox + 1} / {SPACE_IMAGES.length}</div>
+        </div>,
+        document.body
+      )}
+
+      <style>{`
+        .our-space-section {
+          padding: 70px 0 90px;
+          background: var(--bg-light, #f7f7f5);
+          scroll-margin-top: 80px;
+        }
+        .our-space__title {
+          text-align: center;
+          font-family: 'Oswald', sans-serif;
+          font-size: clamp(28px, 4vw + 6px, 40px);
+          font-weight: 500;
+          color: var(--text-heading, #222);
+          margin: 6px 0 14px;
+        }
+        .our-space__subtitle {
+          text-align: center;
+          max-width: 640px;
+          margin: 16px auto 50px;
+          color: var(--body-text, #555);
+          font-size: 15px;
+          line-height: 1.7;
+        }
+        .our-space__grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+          gap: 18px;
+        }
+        .our-space__tile {
+          aspect-ratio: 4 / 3;
+          border: 1px solid var(--border-light, #e0e0e0);
+          border-radius: 10px;
+          overflow: hidden;
+          cursor: pointer;
+          padding: 0;
+          background: #fff;
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .our-space__tile:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+          border-color: var(--accent, #00d084);
+        }
+        .our-space__tile img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.4s ease;
+        }
+        .our-space__tile:hover img {
+          transform: scale(1.05);
+        }
+        .our-space-lightbox {
+          position: fixed;
+          inset: 0;
+          background: rgba(0,0,0,0.92);
+          z-index: 10000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+          animation: spaceFade 0.25s ease;
+        }
+        @keyframes spaceFade {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .our-space-lightbox__img {
+          max-width: 92%;
+          max-height: 88vh;
+          object-fit: contain;
+          border-radius: 8px;
+          box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+          background: #000;
+        }
+        .our-space-lightbox__close,
+        .our-space-lightbox__nav {
+          position: absolute;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.1);
+          border: 1px solid rgba(255,255,255,0.3);
+          color: #fff;
+          font-size: 24px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.2s ease;
+          line-height: 1;
+        }
+        .our-space-lightbox__close:hover,
+        .our-space-lightbox__nav:hover {
+          background: rgba(255,255,255,0.25);
+        }
+        .our-space-lightbox__close { top: 24px; right: 24px; }
+        .our-space-lightbox__nav--prev { left: 24px; top: 50%; transform: translateY(-50%); }
+        .our-space-lightbox__nav--next { right: 24px; top: 50%; transform: translateY(-50%); }
+        .our-space-lightbox__counter {
+          position: absolute;
+          bottom: 24px;
+          left: 50%;
+          transform: translateX(-50%);
+          color: rgba(255,255,255,0.85);
+          font-size: 14px;
+          font-weight: 500;
+          padding: 6px 14px;
+          background: rgba(0,0,0,0.4);
+          border-radius: 999px;
+        }
+        @media (max-width: 600px) {
+          .our-space__grid {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 12px;
+          }
+          .our-space-lightbox__close,
+          .our-space-lightbox__nav {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+          }
+          .our-space-lightbox__close { top: 14px; right: 14px; }
+          .our-space-lightbox__nav--prev { left: 8px; }
+          .our-space-lightbox__nav--next { right: 8px; }
+        }
+      `}</style>
     </>
   );
 }

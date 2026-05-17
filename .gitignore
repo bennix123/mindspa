@@ -9,6 +9,30 @@
 # Production
 /build
 
+# Source-material archives & stray binaries kept locally only
+/*.zip
+/*.docx
+/*.pdf
+/assessment_*.pdf
+/WhatsApp*
+/IMG_*
+/kinforce_*.png
+/mindspa\ logo.PNG
+/Saima*
+/Dharini*
+/Career\ counselling.jpeg
+/Chakra*
+/Executing\ Coaching.jpeg
+/Hypnotherapy.jpeg
+/Psychometric\ testing.jpeg
+/Sexuality*
+/Blogs-*
+/pink_saree_replacement.jpeg
+
+# Root-level source-image staging folder (246 MB of unprocessed material)
+# Working copies live in public/client-pic/
+/client-pic/
+
 # Misc
 .DS_Store
 .env.local

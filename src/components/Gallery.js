@@ -4,12 +4,22 @@ import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
 import './Gallery.css';
 
 const GALLERY_IMAGES = [
-  { src: '/client-pic/1.jpeg', alt: 'MindSpa gallery image 1' },
-  { src: '/client-pic/2.jpeg', alt: 'MindSpa gallery image 2' },
-  { src: '/client-pic/3.jpeg', alt: 'MindSpa gallery image 3' },
-  { src: '/client-pic/4.jpeg', alt: 'MindSpa gallery image 4' },
-  { src: '/client-pic/5.jpeg', alt: 'MindSpa gallery image 5' },
-  { src: '/client-pic/6.jpeg', alt: 'MindSpa gallery image 6' },
+  { src: '/client-pic/gallery-1.jpeg', alt: 'MindSpa gallery image 1' },
+  { src: '/client-pic/gallery-2.jpeg', alt: 'MindSpa gallery image 2' },
+  { src: '/client-pic/gallery-3.jpeg', alt: 'MindSpa gallery image 3' },
+  { src: '/client-pic/gallery-4.jpeg', alt: 'MindSpa gallery image 4' },
+  { src: '/client-pic/gallery-5.jpeg', alt: 'MindSpa gallery image 5' },
+  { src: '/client-pic/gallery-6.jpeg', alt: 'MindSpa gallery image 6' },
+  { src: '/client-pic/gallery-7.jpeg', alt: 'MindSpa gallery image 7' },
+  { src: '/client-pic/gallery-8.jpeg', alt: 'MindSpa gallery image 8' },
+  { src: '/client-pic/gallery-9.jpeg', alt: 'MindSpa gallery image 9' },
+  { src: '/client-pic/gallery-10.jpeg', alt: 'MindSpa gallery image 10' },
+  { src: '/client-pic/gallery-11.jpeg', alt: 'MindSpa gallery image 11' },
+  { src: '/client-pic/gallery-12.jpeg', alt: 'MindSpa gallery image 12' },
+  { src: '/client-pic/gallery-13.jpeg', alt: 'MindSpa gallery image 13' },
+  { src: '/client-pic/gallery-14.jpeg', alt: 'MindSpa gallery image 14' },
+  { src: '/client-pic/gallery-15.jpeg', alt: 'MindSpa gallery image 15' },
+  { src: '/client-pic/gallery-16.jpeg', alt: 'MindSpa gallery image 16' },
 ];
 
 const Gallery = () => {

@@ -4,19 +4,19 @@ import { TriangleDots, FloatingShape } from './DecorativePatterns';
 import './WhyChooseUs.css';
 
 const leftServices = [
-  'Bipolar Disorders',
-  'Anxiety Therapy',
+  'Depression',
+  'Anxiety',
+  'Fear and Phobia',
+  'Panic Attacks',
   'Stress Management',
-  'Executive Coaching',
-  'Depression Therapy',
 ];
 
 const rightServices = [
-  'Relationship Therapy',
-  'Family Therapy',
-  'Curing Addictions',
-  'Emergency Services',
-  'Brief Therapy',
+  'Relationship Issues',
+  'Couple Conflicts',
+  'Breakups',
+  'Psychosomatic Issues (Acidity, Asthma, Allergy, IBS, Fainting)',
+  'Obsessive-Compulsive Disorders',
 ];
 
 const WhyChooseUs = () => {
@@ -31,7 +31,10 @@ const WhyChooseUs = () => {
       <div className="container">
         <div className="why-choose__grid">
           <div ref={leftRef} className={`why-choose__image ${leftVis ? 'visible' : ''}`}>
-            <img src="/client-pic/4.jpeg" alt="Why choose Mind Spa" />
+            <img src="/client-pic/why-choose.jpeg" alt="Why choose Mind Spa" />
+            <div className="why-choose__floating-img">
+              <img src="/client-pic/why-choose-floating.jpeg" alt="Prof (Dr) Manju Agrawal at MindSpa" />
+            </div>
             <div className="why-choose__play-btn" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
                 <polygon points="5,3 19,12 5,21" />
@@ -40,12 +43,11 @@ const WhyChooseUs = () => {
           </div>
 
           <div ref={rightRef} className={`why-choose__content ${rightVis ? 'visible' : ''}`}>
-            <p className="section-label" style={{ textAlign: 'left' }}>Why We Are</p>
-            <h2 className="why-choose__title">Why Choose Us</h2>
+            <h2 className="why-choose__title">Path to Empowerment</h2>
             <p className="why-choose__desc">
-              We provide comprehensive mental health care with a team of certified professionals
-              dedicated to your well-being. Our evidence-based approaches ensure effective and
-              lasting results.
+              We are a team of certified professionals dedicated to your well-being, and we provide
+              comprehensive mental health care with our evidence-based approaches to ensure quick,
+              effective, and lasting results.
             </p>
 
             <div className="why-choose__lists">

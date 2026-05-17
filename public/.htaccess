@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /
+
+# Don't rewrite API requests — let the backend (Node/proxy) handle them
+RewriteRule ^api/ - [L]
+RewriteRule ^uploads/ - [L]
+
+# SPA fallback: send everything else to index.html
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
